@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 
 const MenuItem = ({ title, link, image, history }) => {
-    // console.log(history, link)
+    //console.log(history, link)
     return (
         <div className="menu-item" onClick={() => history.push(`${link}`)}>
             <div className="background-image" style={{
