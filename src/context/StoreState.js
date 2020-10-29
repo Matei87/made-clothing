@@ -1,6 +1,5 @@
 import React from 'react';
 import StoreContext from './StoreContext';
-import hats from '../img//hats.png'
 
 const StoreState = (props) => {
     const initialState = {
@@ -26,14 +25,12 @@ const StoreState = (props) => {
             {
                 title: 'womens',
                 image: 'https://i.ibb.co/GCCdy8t/womens.png',
-                size: 'large',
                 id: 4,
                 link: 'shop/womens'
             },
             {
                 title: 'mens',
                 image: 'https://i.ibb.co/R70vBrQ/men.png',
-                size: 'large',
                 id: 5,
                 link: 'shop/mens'
             }

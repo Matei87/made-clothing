@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import StoreState from './context/StoreState';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Homepage from './pages/Homepage/Homepage';
 
@@ -12,7 +13,11 @@ import 'jquery/dist/jquery.min.js';
 function App() {
   return (
     <StoreState>
-      <Homepage />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+        </Switch>
+      </Router>
     </StoreState>
   );
 }
