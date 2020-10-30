@@ -13,7 +13,7 @@ const Header = () => {
     const options = {
         type: 'loop',
         perPage: 1,
-        autoplay: true,
+        autoplay: false,
     }
 
     return (

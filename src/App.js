@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
 import Homepage from './pages/Homepage/Homepage';
 import ShopPage from './pages/ShopPage/ShopPage';
+import SignInAndSignUpPage from './pages/signin-and-signup/signin-and-signup';
 import Footer from './components/footer/footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,6 +24,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/shop" component={ShopPage} />
+            <Route exact path="/signin" component={SignInAndSignUpPage} />
           </Switch>
 
         </div>

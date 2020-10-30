@@ -12,5 +12,14 @@
 
     .nav-link {
         color: #fff !important;
+        display: flex; align-items: center;
+
+        svg {
+            font-size: 1.4rem; 
+        }
+    }
+
+    &-light .navbar-toggler {
+        border-color: #000 !important;
     }
 }
