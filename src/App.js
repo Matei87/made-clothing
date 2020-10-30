@@ -3,8 +3,10 @@ import './App.scss';
 import StoreState from './context/StoreState';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Navbar from './components/navbar/navbar';
 import Homepage from './pages/Homepage/Homepage';
 import ShopPage from './pages/ShopPage/ShopPage';
+import Footer from './components/footer/footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -15,10 +17,16 @@ function App() {
   return (
     <StoreState>
       <Router>
-        <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route exact path="/shop" component={ShopPage} />
-        </Switch>
+        <Navbar />
+        <div className="container-fluid">
+
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/shop" component={ShopPage} />
+          </Switch>
+
+        </div>
+        <Footer />
       </Router>
     </StoreState>
   );
