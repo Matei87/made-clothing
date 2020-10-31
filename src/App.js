@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import StoreState from './context/StoreState';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -13,12 +13,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'jquery/dist/jquery.min.js';
 
+import { auth } from './firebase/firebase';
 
-function App() {
+
+const App = () => {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const unsubscribeFromAuth = null;
+
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      setCurrentUser(user);
+      //console.log(user);
+    });
+
+    return () => {
+      unsubscribeFromAuth();
+    }
+
+  }, []);
+
   return (
     <StoreState>
       <Router>
-        <Navbar />
+        <Navbar currentUser={currentUser} />
         <div className="container-fluid">
 
           <Switch>
