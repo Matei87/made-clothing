@@ -1,21 +1,41 @@
 import React, { useState } from 'react';
+import { auth, createUserProfileDocument } from '../../firebase/firebase';
 import './signup.scss';
 
 const SignUp = () => {
-    const [name, setName] = useState('');
+    const [displayName, setDisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         //console.log(e.target.value);
-        setEmail('');
-        setPassword('');
+        if (password !== confirmPassword) {
+            alert("Passwords don`t match");
+            return;
+        }
+
+        try {
+            const { user } = await auth.createUserWithEmailAndPassword(email, password);
+
+            await createUserProfileDocument(user, { displayName });
+
+            setDisplayName('');
+            setEmail('');
+            setPassword('');
+            setConfirmPassword('');
+
+        } catch (error) {
+            console.log(error);
+        }
+
+
     }
 
-    const handleChangeName = (e) => {
+    const handleChangeDisplayName = (e) => {
         console.log(e.target.value);
-        setName(e.target.value);
+        setDisplayName(e.target.value);
     }
     const handleChangeEmail = (e) => {
         console.log(e.target.value);
@@ -25,6 +45,10 @@ const SignUp = () => {
         console.log(e.target.value);
         setPassword(e.target.value);
     }
+    const handleChangeConfirmPassword = (e) => {
+        console.log(e.target.value);
+        setConfirmPassword(e.target.value);
+    }
 
     return (
         <div className="sign-up col-md-6">
@@ -33,12 +57,12 @@ const SignUp = () => {
 
             <form onSubmit={handleSubmit}>
                 <input
-                    name="text"
+                    name="displayName"
                     type="text"
                     placeholder="Display Name"
                     className="form-control"
-                    value={email}
-                    onChange={handleChangeName}
+                    value={displayName}
+                    onChange={handleChangeDisplayName}
                     required
                 />
                 <input
@@ -60,12 +84,12 @@ const SignUp = () => {
                     required
                 />
                 <input
-                    name="password"
+                    name="confirmPassword"
                     type="password"
                     placeholder="Confirm Password"
                     className="form-control"
-                    value={password}
-                    onChange={handleChangePassword}
+                    value={confirmPassword}
+                    onChange={handleChangeConfirmPassword}
                     required
                 />
                 <input type="submit" value="SIGN UP" className="btn" />

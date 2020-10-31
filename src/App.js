@@ -13,43 +13,96 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'jquery/dist/jquery.min.js';
 
-import { auth } from './firebase/firebase';
+import { auth, createUserProfileDocument } from './firebase/firebase';
 
 
-const App = () => {
-  const [currentUser, setCurrentUser] = useState(null);
+class App extends React.Component {
+  constructor() {
+    super();
 
-  const unsubscribeFromAuth = null;
+    this.state = {
+      currentUser: null
+    };
 
-  useEffect(() => {
-    auth.onAuthStateChanged(user => {
-      setCurrentUser(user);
-      //console.log(user);
+  }
+
+  //const [currentUser, setCurrentUser] = useState(null);
+  // useEffect(() => {
+  //   //let unsubscribeFromAuth = null;
+
+  //   let unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+
+  //     if (userAuth) {
+  //       const userRef = await createUserProfileDocument(userAuth);
+
+  //       userRef.onSnapshot(snapShot => {
+  //         setCurrentUser({
+  //           currentUser: {
+  //             id: snapShot.id,
+  //             ...snapShot.data()
+  //           }
+  //         });
+  //       });
+
+  //     } else {
+  //       setCurrentUser({ currentUser: userAuth })
+  //     }
+
+  //     console.log(currentUser);
+  //   });
+
+  //   return () => {
+  //     unsubscribeFromAuth();
+  //   }
+
+  // }, []);
+
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          });
+        });
+
+      } else {
+        this.setState({ currentUser: userAuth })
+      }
+
+      console.log(this.state.currentUser);
     });
+  }
 
-    return () => {
-      unsubscribeFromAuth();
-    }
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
 
-  }, []);
+  render() {
+    return (
+      <StoreState>
+        <Router>
+          <Navbar currentUser={this.state.currentUser} />
+          <div className="container-fluid">
 
-  return (
-    <StoreState>
-      <Router>
-        <Navbar currentUser={currentUser} />
-        <div className="container-fluid">
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route exact path="/shop" component={ShopPage} />
+              <Route exact path="/signin" component={SignInAndSignUpPage} />
+            </Switch>
 
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route exact path="/shop" component={ShopPage} />
-            <Route exact path="/signin" component={SignInAndSignUpPage} />
-          </Switch>
-
-        </div>
-        <Footer />
-      </Router>
-    </StoreState>
-  );
+          </div>
+          <Footer />
+        </Router>
+      </StoreState>
+    );
+  }
 }
 
 export default App;

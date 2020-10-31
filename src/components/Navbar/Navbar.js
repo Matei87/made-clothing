@@ -9,6 +9,7 @@ import { auth } from '../../firebase/firebase';
 
 const Navbar = ({ currentUser }) => {
     console.log(currentUser);
+    //console.log(currentUser === false, currentUser !== false);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -21,13 +22,12 @@ const Navbar = ({ currentUser }) => {
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/shop" activeStyle={{ color: '#212529' }}>SHOP</NavLink>
                     </li>
-                    {currentUser ?
-                        <li className="nav-item">
-                            <div className="nav-link" onClick={() => auth.signOut()}>SIGN OUT</div>
-                        </li> :
-                        <li className="nav-item">
+                    {currentUser ? <li className="nav-item">
+                        <div className="nav-link" onClick={() => auth.signOut()}>SIGN OUT</div>
+                    </li> : <li className="nav-item">
                             <NavLink className="nav-link" to="/signin" activeStyle={{ color: '#212529' }}>SIGN IN</NavLink>
                         </li>}
+
 
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/checkout"><RiShoppingBagLine /></NavLink>
