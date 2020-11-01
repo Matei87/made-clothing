@@ -7,6 +7,8 @@ import Navbar from './components/navbar/navbar';
 import Homepage from './pages/Homepage/Homepage';
 import ShopPage from './pages/ShopPage/ShopPage';
 import SignInAndSignUpPage from './pages/signin-and-signup/signin-and-signup';
+import CollectionPage from './pages/collection-page/collection-page';
+import ItemDetails from './pages/ItemDetails/ItemDetails';
 import Footer from './components/footer/footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -76,7 +78,7 @@ class App extends React.Component {
         this.setState({ currentUser: userAuth })
       }
 
-      console.log(this.state.currentUser);
+      //console.log(this.state.currentUser);
     });
   }
 
@@ -95,6 +97,8 @@ class App extends React.Component {
               <Route exact path="/" component={Homepage} />
               <Route exact path="/shop" component={ShopPage} />
               <Route exact path="/signin" component={SignInAndSignUpPage} />
+              <Route exact path="/:name" component={CollectionPage} />
+              <Route exact path='/:name/:name' component={ItemDetails} />
             </Switch>
 
           </div>

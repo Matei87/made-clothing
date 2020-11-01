@@ -1,15 +1,23 @@
 import React from 'react';
 import './menu-item.scss';
-import { withRouter } from 'react-router-dom';
+
+import { withRouter, useHistory } from 'react-router-dom';
+
+const MenuItem = (props) => {
+    let history = useHistory();
+
+    const { image, title, routeName } = props.section;
+    //console.log(props);
 
 
-const MenuItem = ({ title, link, image, history }) => {
-    //console.log(history, link)
     return (
-        <div className="menu-item" onClick={() => history.push(`${link}`)}>
-            <div className="background-image" style={{
-                backgroundImage: `url(${image})`
-            }} />
+        <div className="menu-item" onClick={() => history.push({
+            pathname: `${routeName}`,
+            state: { section: props.section }
+        })}>
+            <div className="background-image">
+                <img src={image} alt="image" />
+            </div>
             <div className="content">
                 <h1 className="title">{title}</h1>
                 <span className="subtitle">Shop now</span>

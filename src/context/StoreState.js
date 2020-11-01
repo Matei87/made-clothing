@@ -1,44 +1,52 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import StoreContext from './StoreContext';
+import StoreReducer from './StoreReducer';
+
+import hats from '../img/hats.png';
+import jackets from '../img/jackets.png';
+import sneakers from '../img/sneakers.png';
+import womens from '../img/womens.png';
+import mens from '../img/men.png';
 
 const StoreState = (props) => {
     const initialState = {
         sections: [
             {
                 title: 'hats',
-                image: 'https://i.ibb.co/cvpntL1/hats.png',
+                image: hats,
                 id: 1,
-                link: 'shop/hats'
+                link: 'hats'
             },
             {
                 title: 'jackets',
-                image: 'https://i.ibb.co/px2tCc3/jackets.png',
+                image: jackets,
                 id: 2,
-                link: 'shop/jackets'
+                link: 'jackets'
             },
             {
                 title: 'sneakers',
-                image: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+                image: sneakers,
                 id: 3,
-                link: 'shop/sneakers'
+                link: 'sneakers'
             },
             {
                 title: 'womens',
-                image: 'https://i.ibb.co/GCCdy8t/womens.png',
+                image: womens,
                 id: 4,
-                link: 'shop/womens'
+                link: 'womens'
             },
             {
                 title: 'mens',
-                image: 'https://i.ibb.co/R70vBrQ/men.png',
+                image: mens,
                 id: 5,
-                link: 'shop/mens'
+                link: 'mens'
             }
         ],
         shopData: [
             {
                 id: 1,
                 title: 'Hats',
+                image: hats,
                 routeName: 'hats',
                 items: [
                     {
@@ -100,6 +108,7 @@ const StoreState = (props) => {
             {
                 id: 2,
                 title: 'Sneakers',
+                image: sneakers,
                 routeName: 'sneakers',
                 items: [
                     {
@@ -155,6 +164,7 @@ const StoreState = (props) => {
             {
                 id: 3,
                 title: 'Jackets',
+                image: jackets,
                 routeName: 'jackets',
                 items: [
                     {
@@ -192,6 +202,7 @@ const StoreState = (props) => {
             {
                 id: 4,
                 title: 'Womens',
+                image: womens,
                 routeName: 'womens',
                 items: [
                     {
@@ -241,6 +252,7 @@ const StoreState = (props) => {
             {
                 id: 5,
                 title: 'Mens',
+                image: mens,
                 routeName: 'mens',
                 items: [
                     {
@@ -281,13 +293,23 @@ const StoreState = (props) => {
                     }
                 ]
             }
-        ]
+        ],
+        currentUser: null,
+        isLoading: true
     }
     //console.log(initialState.sections);
+    const [state, dispatch] = useReducer(StoreReducer, initialState);
 
+    //console.log(initialState.shopData);
     return (
         <StoreContext.Provider
-            value={{ sections: initialState.sections, shopData: initialState.shopData }}
+            value={
+                {
+                    sections: initialState.sections,
+                    shopData: initialState.shopData,
+                    isLoading: initialState.isLoading
+                }
+            }
         >
             {props.children}
         </StoreContext.Provider>

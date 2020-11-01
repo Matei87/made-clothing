@@ -4,7 +4,8 @@ import './collection-item.scss';
 import StoreContext from '../../context/StoreContext';
 
 const CollectionItem = ({ id, name, price, image }) => {
-    const { ShopData } = useContext(StoreContext);
+    const { shopData } = useContext(StoreContext);
+    //console.log(shopData);
 
     return (
         <div className="collection-item">

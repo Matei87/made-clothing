@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './navbar.scss';
 
 import Logo from '../../img/logo1.png';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { RiShoppingBagLine } from "react-icons/ri";
 import { auth } from '../../firebase/firebase';
-
+import StoreContext from '../../context/StoreContext';
 
 const Navbar = ({ currentUser }) => {
-    console.log(currentUser);
+    const { shopData } = useContext(StoreContext);
+    //console.log(shopData);
     //console.log(currentUser === false, currentUser !== false);
 
     return (

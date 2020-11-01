@@ -6,6 +6,7 @@ import CollectionPreview from '../../components/collection-preview/collection-pr
 const ShopPage = () => {
     const { shopData } = useContext(StoreContext);
     console.log(shopData);
+
     return (
         <div className="shop-page">
             { shopData.map(({ id, ...otherCollectionProps }) => (

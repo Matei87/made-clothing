@@ -4,13 +4,13 @@ import StoreContext from '../../context/StoreContext'
 import MenuItem from '../../components/menu-item/menu-item';
 
 const Directory = () => {
-    const { sections } = useContext(StoreContext);
-    //console.log(sections);
+    const { shopData } = useContext(StoreContext);
+    //console.log(shopData);
 
     return (
         <div className="directory-menu">
-            {sections.map(({ id, ...otherSectionProps }) => {
-                return <MenuItem {...otherSectionProps} key={id} />
+            {shopData.map(section => {
+                return <MenuItem key={section.id} section={section} />
             })}
         </div>
     )

@@ -38,7 +38,12 @@
             }
 
             &.google {
-                background: darkblue;
+                background: #03a9f4;
+                border-color: #03a9f4 !important;
+
+                &:hover {
+                    border-color: #000 !important;
+                }
             }
         }        
     }
