@@ -32,8 +32,8 @@ const SignIn = () => {
     }
 
     return (
-        <div className="sign-in col-md-6">
-            <h2>I already have an account</h2>
+        <div className="sign-in col-md-10">
+            {/* <h2>I already have an account</h2> */}
             <span>Sign in with your email and password</span>
 
             <form onSubmit={handleSubmit}>

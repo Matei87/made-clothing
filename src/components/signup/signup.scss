@@ -1,8 +1,9 @@
 .sign-up {
-    h2 {
-        font-size: 1.5rem;
-    }
+    margin: 0 auto;
 
+    span {
+        display: flex; justify-content: center;
+    }
 
     input.form-control {
         margin: 2.8125rem 0;
