@@ -4,6 +4,7 @@ import './navbar.scss';
 import Logo from '../../img/logo1.png';
 import { NavLink } from 'react-router-dom';
 import { RiShoppingBagLine } from "react-icons/ri";
+import { HiOutlineHeart } from "react-icons/hi";
 import { auth } from '../../firebase/firebase';
 import StoreContext from '../../context/StoreContext';
 
@@ -20,16 +21,14 @@ const Navbar = ({ currentUser }) => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
-                    <li className="nav-item">
-                        <NavLink className="nav-link" to="/shop" activeStyle={{ color: '#212529' }}>SHOP</NavLink>
-                    </li>
                     {currentUser ? <li className="nav-item">
                         <div className="nav-link" onClick={() => auth.signOut()}>SIGN OUT</div>
                     </li> : <li className="nav-item">
                             <NavLink className="nav-link" to="/signin" activeStyle={{ color: '#212529' }}>SIGN IN</NavLink>
                         </li>}
-
-
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/saved-lists"><HiOutlineHeart /></NavLink>
+                    </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/checkout"><RiShoppingBagLine /></NavLink>
                     </li>

@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Navbar from './components/navbar/navbar';
 import Homepage from './pages/Homepage/Homepage';
-import ShopPage from './pages/ShopPage/ShopPage';
 import SignInAndSignUpPage from './pages/signin-and-signup/signin-and-signup';
+import SavedLists from './pages/SavedLists/SavedLists';
 import CollectionPage from './pages/collection-page/collection-page';
 import ItemDetails from './pages/ItemDetails/ItemDetails';
 import Footer from './components/footer/footer';
@@ -62,6 +62,7 @@ class App extends React.Component {
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
+
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -95,10 +96,10 @@ class App extends React.Component {
 
             <Switch>
               <Route exact path="/" component={Homepage} />
-              <Route exact path="/shop" component={ShopPage} />
               <Route exact path="/signin" component={SignInAndSignUpPage} />
+              <Route exact path="/saved-lists" component={SavedLists} />
               <Route exact path="/:name" component={CollectionPage} />
-              <Route exact path='/:name/:name' component={ItemDetails} />
+              <Route exact path="/:name/:name" component={ItemDetails} />
             </Switch>
 
           </div>

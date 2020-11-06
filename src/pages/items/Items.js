@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import './items.scss';
+import './Items.scss';
 
 import Item from '../../components/item/item';
 import { withRouter } from 'react-router-dom';
 
 const Items = (props) => {
-    // console.log(props.items, props.match.params);
+    //console.log(props);
     const { name } = props.match.params;
-    let product = props.product.filter(data => data.title.toLowerCase() === props.match.params.name);
+    let product = props.product.filter(data => data.title.toLowerCase() === name);
     //console.log(product);
 
     // const { title, items } = product;

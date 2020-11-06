@@ -19,6 +19,7 @@
             border: 1px solid #000;
             width: 100%; height: 100%;
             object-fit: cover;
+            
         }
 
         .name {
@@ -66,17 +67,17 @@
             }
 
             span {
-                width: 40px; height: 40px; background:#212529;
+                width: 40px; height: 40px; background:#03a9f4;
                 border-radius: 50%; margin-left: 3rem;
                 display: flex; align-content: center; justify-content: center;
 
                 svg {
                     display: flex; align-self: center;
-                    stroke: #03a9f4; font-size: 1.75rem;
+                    stroke: #fff; font-size: 1.75rem;
 
                     &:hover {
                         cursor: pointer;
-                        fill: #03a9f4;
+                        fill: #fff;
                     }
                 }
             }

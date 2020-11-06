@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import StoreContext from './StoreContext';
 import StoreReducer from './StoreReducer';
 
@@ -51,6 +51,9 @@ import polkadotshirt from '../img/polka-dot-shirt.png';
 
 
 const StoreState = (props) => {
+    const favorite = (localStorage.getItem('favorites'));
+    console.log(favorite);
+
     const initialState = {
         sections: [
             {
@@ -372,10 +375,15 @@ const StoreState = (props) => {
             }
         ],
         currentUser: null,
-        isLoading: true
+        isLoading: true,
+        favorites: JSON.parse(favorite) || []
     }
     //console.log(initialState.sections);
     const [state, dispatch] = useReducer(StoreReducer, initialState);
+
+    const addFavorite = (favorites) => {
+        dispatch({ type: 'ADD_FAVORITE', favorites });
+    }
 
     //console.log(initialState.shopData);
     return (
@@ -384,7 +392,9 @@ const StoreState = (props) => {
                 {
                     sections: initialState.sections,
                     shopData: initialState.shopData,
-                    isLoading: initialState.isLoading
+                    isLoading: initialState.isLoading,
+                    favorites: initialState.favorites,
+                    addFavorite
                 }
             }
         >

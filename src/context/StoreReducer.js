@@ -1,11 +1,10 @@
-
-
 const StoreReducer = (state, action) => {
+    console.log(state, action);
     switch (action.type) {
-        case 'SET_CURRENT_USER':
+        case 'ADD_FAVORITE':
             return {
                 ...state,
-                currentUser: action.payload
+                favorites: [action.payload, ...state.favorites]
             }
         default:
             return state;

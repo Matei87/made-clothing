@@ -1,14 +1,15 @@
 import React from 'react';
 import './ItemDetails.scss';
 
-import { withRouter, useHistory } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 import { HiArrowLeft, HiOutlineHeart } from "react-icons/hi";
 
 
 const ItemDetails = (props) => {
     let history = useHistory();
-    //console.log(props);
+    //console.log(props.match.params, props, history);
     const { id, name, image, price, colour } = props.location.state.item;
+
     return (
         <div className="item-details container">
             <div className="btn btn-primary" onClick={() => history.goBack()}><HiArrowLeft /> Back</div>
@@ -31,7 +32,7 @@ const ItemDetails = (props) => {
                         </select>
                     </div>
                     <p className="addToCart-svg">
-                        <div className="addToCart btn">Add to cart</div>
+                        <button className="addToCart btn">Add to cart</button>
                         <span><HiOutlineHeart /></span>
                     </p>
 
@@ -41,4 +42,4 @@ const ItemDetails = (props) => {
     )
 }
 
-export default withRouter(ItemDetails);
+export default ItemDetails;
