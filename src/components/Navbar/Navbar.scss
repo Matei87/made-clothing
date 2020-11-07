@@ -4,26 +4,49 @@
 
     &-brand {
         
-
         img {
             height: 2rem; width: 2rem;
         }
     }
+    
+    &-nav {
+        width: 100%;
 
-    .nav-link {
-        color: #fff !important;
-        display: flex; align-items: center;
+        .nav-item {
+            position: relative;
 
-        &:hover {
-            cursor: pointer;
+            &.active {
+                background-color: #525050;
+            }
+            
         }
-        
-        svg {
-            font-size: 1.4rem; 
+
+        .nav-item:nth-child(3) {
+            margin-left: auto;
+        }
+        .nav-link {
+            color: #fff !important;
+            display: flex; align-items: center;
+    
+            &:hover {
+                cursor: pointer;
+            }
+            
+            svg {
+                font-size: 1.4rem; 
+            }
+
+            &.active {
+                background-color: #525050;
+            }
         }
     }
+   
 
     &-light .navbar-toggler {
-        border-color: #000 !important;
+        border-color: white !important;
+        color: white !important;
+        border-radius: 0 !important;
+        background-color: white !important;
     }
 }

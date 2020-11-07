@@ -2,13 +2,9 @@ import React, { useReducer, useEffect } from 'react';
 import StoreContext from './StoreContext';
 import StoreReducer from './StoreReducer';
 
-//PICTURES
-import hats from '../img/hats.png';
-import jackets from '../img/jackets.png';
-import sneakers from '../img/sneakers.png';
-import womens from '../img/womens.png';
-import mens from '../img/men.png';
+
 //hats
+import blackhat from '../img/black-hat.png';
 import brownbrim from '../img/brown-brim.png';
 import bluebeanie from '../img/blue-beanie.png';
 import browncowboy from '../img/brown-cowboy.png';
@@ -55,44 +51,11 @@ const StoreState = (props) => {
     console.log(favorite);
 
     const initialState = {
-        sections: [
-            {
-                title: 'hats',
-                image: hats,
-                id: 1,
-                link: 'hats'
-            },
-            {
-                title: 'jackets',
-                image: jackets,
-                id: 2,
-                link: 'jackets'
-            },
-            {
-                title: 'sneakers',
-                image: sneakers,
-                id: 3,
-                link: 'sneakers'
-            },
-            {
-                title: 'womens',
-                image: womens,
-                id: 4,
-                link: 'womens'
-            },
-            {
-                title: 'mens',
-                image: mens,
-                id: 5,
-                link: 'mens'
-            }
-        ],
         shopData: [
             {
                 id: 1,
-                title: 'Hats',
-                image: hats,
-                routeName: 'hats',
+                title: 'Women',
+                routeName: 'women',
                 items: [
                     {
                         id: 1,
@@ -110,212 +73,90 @@ const StoreState = (props) => {
                     },
                     {
                         id: 3,
-                        colour: 'Brown',
-                        name: 'Brown Cowboy',
-                        image: browncowboy,
-                        price: 35
-                    },
-                    {
-                        id: 4,
-                        colour: 'Grey',
-                        name: 'Grey Brim',
-                        image: greybrim,
-                        price: 25
-                    },
-                    {
-                        id: 5,
                         colour: 'Green',
                         name: 'Green Beanie',
                         image: greenbeanie,
                         price: 18
                     },
                     {
-                        id: 6,
-                        colour: 'Grey',
-                        name: 'Palm Tree Cap',
-                        image: palmtreecap,
-                        price: 14
-                    },
-                    {
-                        id: 7,
+                        id: 4,
                         colour: 'Red',
                         name: 'Red Beanie',
                         image: redbeanie,
                         price: 18
                     },
                     {
-                        id: 8,
-                        colour: 'Blue',
-                        name: 'Wolf Cap',
-                        image: wolfcap,
-                        price: 14
-                    },
-                    {
-                        id: 9,
+                        id: 5,
                         colour: 'Blue',
                         name: 'Blue Snapback',
                         image: bluesnapback,
                         price: 16
-                    }
-                ]
-            },
-            {
-                id: 2,
-                title: 'Sneakers',
-                image: sneakers,
-                routeName: 'sneakers',
-                items: [
-                    {
-                        id: 1,
-                        colour: 'Black / White',
-                        name: 'Adidas NMD',
-                        image: adidasnmd,
-                        price: 220
                     },
                     {
-                        id: 2,
+                        id: 6,
                         colour: 'Mauve / White',
                         name: 'Adidas Yeezy',
                         image: yeezy,
                         price: 280
                     },
                     {
-                        id: 3,
-                        colour: 'Black',
-                        name: 'Black Converse',
-                        image: blackconverse,
-                        price: 110
-                    },
-                    {
-                        id: 4,
-                        colour: 'White',
-                        name: 'Nike White AirForce',
-                        image: whitenikehightops,
-                        price: 160
-                    },
-                    {
-                        id: 5,
-                        colour: 'Red / White',
-                        name: 'Nike Red High Tops',
-                        image: nikesred,
-                        price: 160
-                    },
-                    {
-                        id: 6,
-                        colour: 'Brown / White',
-                        name: 'Nike Brown High Tops',
-                        image: nikebrown,
-                        price: 160
-                    },
-                    {
                         id: 7,
-                        colour: 'White / Black',
-                        name: 'Air Jordan Limited',
-                        image: nikefunky,
-                        price: 190
-                    },
-                    {
-                        id: 8,
-                        colour: 'Brown',
-                        name: 'Timberlands',
-                        image: timberlands,
-                        price: 200
-                    }
-                ]
-            },
-            {
-                id: 3,
-                title: 'Jackets',
-                image: jackets,
-                routeName: 'jackets',
-                items: [
-                    {
-                        id: 1,
-                        colour: 'Black',
-                        name: 'Black Jean Shearling',
-                        image: blackshearling,
-                        price: 125
-                    },
-                    {
-                        id: 2,
-                        colour: 'Blue',
-                        name: 'Blue Jean Jacket',
-                        image: bluejeanjacket,
-                        price: 90
-                    },
-                    {
-                        id: 3,
                         colour: 'Grey',
                         name: 'Grey Jean Jacket',
                         image: greyjeanjacket,
                         price: 90
                     },
                     {
-                        id: 4,
-                        colour: 'Brown / White',
-                        name: 'Brown Shearling',
-                        image: brownshearling,
-                        price: 165
-                    },
-                    {
-                        id: 5,
+                        id: 8,
                         colour: 'Brown',
                         name: 'Tan Trench',
                         image: browntrench,
                         price: 185
-                    }
-                ]
-            },
-            {
-                id: 4,
-                title: 'Womens',
-                image: womens,
-                routeName: 'womens',
-                items: [
+                    },
                     {
-                        id: 1,
+                        id: 9,
                         colour: 'Blue',
                         name: 'Blue Tanktop',
                         image: bluetank,
                         price: 25
                     },
                     {
-                        id: 2,
+                        id: 10,
                         colour: 'White / Pink',
                         name: 'Floral Blouse',
                         image: floralblouse,
                         price: 20
                     },
                     {
-                        id: 3,
+                        id: 11,
                         colour: 'White / Red',
                         name: 'Floral Dress',
                         image: floralskirt,
                         price: 80
                     },
                     {
-                        id: 4,
+                        id: 12,
                         colour: 'Red / White',
                         name: 'Red Dots Dress',
                         image: redpolkadotdress,
                         price: 80
                     },
                     {
-                        id: 5,
+                        id: 13,
                         colour: 'White / Brown',
                         name: 'Striped Sweater',
                         image: stripedsweater,
                         price: 45
                     },
                     {
-                        id: 6,
+                        id: 14,
                         colour: 'Yellow',
                         name: 'Yellow Track Suit',
                         image: yellowtracksuit,
                         price: 135
                     },
                     {
-                        id: 7,
+                        id: 15,
                         colour: 'White',
                         name: 'White Blouse',
                         image: whitevest,
@@ -324,48 +165,154 @@ const StoreState = (props) => {
                 ]
             },
             {
-                id: 5,
-                title: 'Mens',
-                image: mens,
-                routeName: 'mens',
+                id: 2,
+                title: 'Men',
+                routeName: 'men',
                 items: [
                     {
                         id: 1,
+                        colour: 'Brown',
+                        name: 'Brown Cowboy',
+                        image: browncowboy,
+                        price: 35
+                    },
+                    {
+                        id: 2,
+                        colour: 'Grey',
+                        name: 'Grey Brim',
+                        image: greybrim,
+                        price: 25
+                    },
+                    {
+                        id: 3,
+                        colour: 'Grey',
+                        name: 'Palm Tree Cap',
+                        image: palmtreecap,
+                        price: 14
+                    },
+                    {
+                        id: 4,
+                        colour: 'Blue',
+                        name: 'Wolf Cap',
+                        image: wolfcap,
+                        price: 14
+                    },
+                    {
+                        id: 5,
+                        colour: 'Black',
+                        name: 'Black Cap',
+                        image: blackhat,
+                        price: 20
+                    },
+                    {
+                        id: 6,
+                        colour: 'Black / White',
+                        name: 'Adidas NMD',
+                        image: adidasnmd,
+                        price: 220
+                    },
+                    {
+                        id: 7,
+                        colour: 'Black',
+                        name: 'Black Converse',
+                        image: blackconverse,
+                        price: 110
+                    },
+                    {
+                        id: 8,
+                        colour: 'White',
+                        name: 'Nike White AirForce',
+                        image: whitenikehightops,
+                        price: 160
+                    },
+                    {
+                        id: 9,
+                        colour: 'Red / White',
+                        name: 'Nike Red High Tops',
+                        image: nikesred,
+                        price: 160
+                    },
+                    {
+                        id: 10,
+                        colour: 'Brown / White',
+                        name: 'Nike Brown High Tops',
+                        image: nikebrown,
+                        price: 160
+                    },
+                    {
+                        id: 11,
+                        colour: 'White / Black',
+                        name: 'Air Jordan Limited',
+                        image: nikefunky,
+                        price: 190
+                    },
+                    {
+                        id: 12,
+                        colour: 'Brown',
+                        name: 'Timberlands',
+                        image: timberlands,
+                        price: 200
+                    },
+                    {
+                        id: 13,
+                        colour: 'Black',
+                        name: 'Black Jean Shearling',
+                        image: blackshearling,
+                        price: 125
+                    },
+                    {
+                        id: 14,
+                        colour: 'Blue',
+                        name: 'Blue Jean Jacket',
+                        image: bluejeanjacket,
+                        price: 90
+                    },
+                    {
+                        id: 15,
+                        colour: 'Brown / White',
+                        name: 'Brown Shearling',
+                        image: brownshearling,
+                        price: 165
+                    },
+
+
+                    {
+                        id: 16,
                         colour: 'Brown / Green / Black',
                         name: 'Camo Down Vest',
                         image: camovest,
                         price: 325
                     },
                     {
-                        id: 2,
+                        id: 17,
                         colour: 'Blue',
                         name: 'Floral T-shirt',
                         image: floralshirt,
                         price: 20
                     },
                     {
-                        id: 3,
+                        id: 18,
                         colour: 'Black / White',
                         name: 'Black & White Longsleeve',
                         image: longsleeve,
                         price: 25
                     },
                     {
-                        id: 4,
+                        id: 19,
                         colour: 'Pink',
                         name: 'Pink T-shirt',
                         image: pinkshirt,
                         price: 25
                     },
                     {
-                        id: 5,
+                        id: 20,
                         colour: 'Blue',
                         name: 'Jean Long Sleeve',
                         image: rollupjeanshirt,
                         price: 40
                     },
                     {
-                        id: 6,
+                        id: 21,
                         colour: 'Brown / Black',
                         name: 'Burgundy T-shirt',
                         image: polkadotshirt,
@@ -378,14 +325,13 @@ const StoreState = (props) => {
         isLoading: true,
         favorites: JSON.parse(favorite) || []
     }
-    //console.log(initialState.sections);
     const [state, dispatch] = useReducer(StoreReducer, initialState);
 
     const addFavorite = (favorites) => {
-        dispatch({ type: 'ADD_FAVORITE', favorites });
+        dispatch({ type: 'ADD_FAVORITE', payload: favorites });
+        localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
-    //console.log(initialState.shopData);
     return (
         <StoreContext.Provider
             value={

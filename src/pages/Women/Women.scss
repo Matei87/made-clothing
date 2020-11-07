@@ -1,4 +1,11 @@
-.collection-items {
+.collection-page {
+    margin: 2rem auto;
+    display: flex; justify-content: center;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+
+    .collection-items {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         margin: 2rem auto 1rem;
@@ -68,4 +75,6 @@
             }
         }
     }
+}
+
 }

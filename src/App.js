@@ -7,8 +7,11 @@ import Navbar from './components/navbar/navbar';
 import Homepage from './pages/Homepage/Homepage';
 import SignInAndSignUpPage from './pages/signin-and-signup/signin-and-signup';
 import SavedLists from './pages/SavedLists/SavedLists';
-import CollectionPage from './pages/collection-page/collection-page';
+import Women from './pages/Women/Women';
+import Men from './pages/Men/Men';
+
 import ItemDetails from './pages/ItemDetails/ItemDetails';
+import NotFound from './pages/NotFound/NotFound';
 import Footer from './components/footer/footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -98,8 +101,13 @@ class App extends React.Component {
               <Route exact path="/" component={Homepage} />
               <Route exact path="/signin" component={SignInAndSignUpPage} />
               <Route exact path="/saved-lists" component={SavedLists} />
-              <Route exact path="/:name" component={CollectionPage} />
+              <Route exact path="/women" component={Women} />
+              <Route exact path="/men" component={Men} />
+
+              {/* <Route exact path="/:name" component={CollectionPage} />*/}
+
               <Route exact path="/:name/:name" component={ItemDetails} />
+              <Route component={NotFound} />
             </Switch>
 
           </div>
