@@ -8,10 +8,11 @@ import { HiOutlineHeart } from "react-icons/hi";
 import { auth } from '../../firebase/firebase';
 import StoreContext from '../../context/StoreContext';
 
-const Navbar = ({ currentUser }) => {
-    const { shopData } = useContext(StoreContext);
+
+const Navbar = () => {
+    const { shopData, currentUser } = useContext(StoreContext);
     //console.log(shopData);
-    //console.log(currentUser === false, currentUser !== false);
+    console.log(currentUser);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light">

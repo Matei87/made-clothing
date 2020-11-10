@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import './App.scss';
-import StoreState from './context/StoreState';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import StoreContext from './context/StoreContext';
+import { Route, Switch } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 import Navbar from './components/navbar/navbar';
 import Homepage from './pages/Homepage/Homepage';
@@ -21,48 +23,15 @@ import 'jquery/dist/jquery.min.js';
 import { auth, createUserProfileDocument } from './firebase/firebase';
 
 
-class App extends React.Component {
-  constructor() {
-    super();
+class App extends Component {
+  static contextType = StoreContext;
 
-    this.state = {
-      currentUser: null
-    };
-
-  }
-
-  //const [currentUser, setCurrentUser] = useState(null);
-  // useEffect(() => {
-  //   //let unsubscribeFromAuth = null;
-
-  //   let unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-
-  //     if (userAuth) {
-  //       const userRef = await createUserProfileDocument(userAuth);
-
-  //       userRef.onSnapshot(snapShot => {
-  //         setCurrentUser({
-  //           currentUser: {
-  //             id: snapShot.id,
-  //             ...snapShot.data()
-  //           }
-  //         });
-  //       });
-
-  //     } else {
-  //       setCurrentUser({ currentUser: userAuth })
-  //     }
-
-  //     console.log(currentUser);
-  //   });
-
-  //   return () => {
-  //     unsubscribeFromAuth();
-  //   }
-
-  // }, []);
 
   componentDidMount() {
+    const { currentUser, setCurrentUser } = this.context;
+
+    console.log(currentUser, setCurrentUser);
+
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
 
@@ -70,19 +39,17 @@ class App extends React.Component {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          this.setState({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data()
-            }
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
           });
         });
 
       } else {
-        this.setState({ currentUser: userAuth })
+        setCurrentUser(userAuth)
       }
 
-      //console.log(this.state.currentUser);
+      console.log(currentUser);
     });
   }
 
@@ -91,10 +58,11 @@ class App extends React.Component {
   }
 
   render() {
+    //console.log(this.contextType, StoreContext);
     return (
-      <StoreState>
-        <Router>
-          <Navbar currentUser={this.state.currentUser} />
+      <>
+        <Navbar />
+        <ScrollToTop>
           <div className="container-fluid">
 
             <Switch>
@@ -111,9 +79,9 @@ class App extends React.Component {
             </Switch>
 
           </div>
-          <Footer />
-        </Router>
-      </StoreState>
+        </ScrollToTop>
+        <Footer />
+      </>
     );
   }
 }

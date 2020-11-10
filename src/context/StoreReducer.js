@@ -6,6 +6,11 @@ const StoreReducer = (state, action) => {
                 ...state,
                 favorites: [action.payload, ...state.favorites]
             }
+        case 'SET_CURRENT_USER':
+            return {
+                ...state,
+                currentUser: action.payload
+            }
         default:
             return state;
     }

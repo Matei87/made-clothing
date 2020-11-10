@@ -12,7 +12,6 @@ const Header = () => {
         <header>
             <div className="image-container">
                 <img src={Bags} alt="bags" />
-                <Link to="/shop">Shop Now</Link>
             </div>
         </header>
     );

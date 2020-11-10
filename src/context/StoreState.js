@@ -47,8 +47,8 @@ import polkadotshirt from '../img/polka-dot-shirt.png';
 
 
 const StoreState = (props) => {
-    const favorite = (localStorage.getItem('favorites'));
-    console.log(favorite);
+    const favorite = localStorage.getItem('favorites');
+    //console.log(favorite);
 
     const initialState = {
         shopData: [
@@ -327,10 +327,15 @@ const StoreState = (props) => {
     }
     const [state, dispatch] = useReducer(StoreReducer, initialState);
 
-    const addFavorite = (favorites) => {
+
+    //ACTIONS
+    const addFavorite = favorites => {
         dispatch({ type: 'ADD_FAVORITE', payload: favorites });
-        localStorage.setItem('favorites', JSON.stringify(favorites));
     }
+    const setCurrentUser = user => {
+        dispatch({ type: 'SET_CURRENT_USER', payload: user })
+    }
+
 
     return (
         <StoreContext.Provider
@@ -340,7 +345,10 @@ const StoreState = (props) => {
                     shopData: initialState.shopData,
                     isLoading: initialState.isLoading,
                     favorites: initialState.favorites,
-                    addFavorite
+                    currentUser: initialState.currentUser,
+
+                    addFavorite,
+                    setCurrentUser
                 }
             }
         >

@@ -8,28 +8,20 @@ import { HiOutlineHeart } from "react-icons/hi";
 
 const Women = () => {
     const { shopData, favorites, addFavorite } = useContext(StoreContext);
-    const [saved, setSaved] = useState([]);
     let history = useHistory();
 
-    console.log(shopData[0]);
     const { items } = shopData[0];
-    console.log(items);
+    //console.log(items);
 
 
     const like = (id) => {
         let likedProduct = items.find(item => item.id === id);
-        setSaved([likedProduct, ...saved]);
-        addFavorite([likedProduct, ...saved]);
-        console.log(saved, favorites);
-    }
-    useEffect(() => {
-        let local = localStorage.getItem('favorites');
-        if (local) {
-            //addFavorite(JSON.parse(local));
-            setSaved(JSON.parse(local));
-        }
+        addFavorite([likedProduct, ...favorites]);
+        localStorage.setItem('favorites', JSON.stringify([likedProduct, ...favorites]));
         console.log(favorites);
-    }, []);
+    }
+    console.log(favorites);
+
 
     return (
         <div className="collection-page">
@@ -61,4 +53,4 @@ const Women = () => {
     )
 }
 
-export default withRouter(Women);
+export default Women;
