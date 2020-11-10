@@ -9,8 +9,8 @@ import { auth } from '../../firebase/firebase';
 import StoreContext from '../../context/StoreContext';
 
 
-const Navbar = () => {
-    const { shopData, currentUser } = useContext(StoreContext);
+const Navbar = ({ currentUser }) => {
+    //const { shopData, currentUser } = useContext(StoreContext);
     //console.log(shopData);
     console.log(currentUser);
 
@@ -29,9 +29,9 @@ const Navbar = () => {
                         <NavLink className="nav-link" to="/men">MEN</NavLink>
                     </li>
                     {currentUser ? <li className="nav-item">
-                        <div className="nav-link" onClick={() => auth.signOut()}>SIGN OUT</div>
+                        <div className={currentUser ? `nav-link active` : "nav-link"} onClick={() => auth.signOut()}>SIGN OUT</div>
                     </li> : <li className="nav-item">
-                            <NavLink className="nav-link" to="/signin" activeStyle={{ color: '#212529' }}>SIGN IN</NavLink>
+                            <NavLink className="nav-link" to="/signin" >SIGN IN</NavLink>
                         </li>}
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/saved-lists"><HiOutlineHeart /></NavLink>

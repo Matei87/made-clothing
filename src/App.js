@@ -26,6 +26,10 @@ import { auth, createUserProfileDocument } from './firebase/firebase';
 class App extends Component {
   static contextType = StoreContext;
 
+  state = {
+    currentUser: null
+  }
+
 
   componentDidMount() {
     const { currentUser, setCurrentUser } = this.context;
@@ -34,19 +38,25 @@ class App extends Component {
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
-
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data()
-          });
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          })
+          // setCurrentUser({
+          //   id: snapShot.id,
+          //   ...snapShot.data()
+          // });
         });
 
       } else {
-        setCurrentUser(userAuth)
+        this.setState({ currentUser: userAuth });
+        //setCurrentUser(userAuth);
       }
 
       console.log(currentUser);
@@ -61,7 +71,7 @@ class App extends Component {
     //console.log(this.contextType, StoreContext);
     return (
       <>
-        <Navbar />
+        <Navbar currentUser={this.state.currentUser} />
         <ScrollToTop>
           <div className="container-fluid">
 
