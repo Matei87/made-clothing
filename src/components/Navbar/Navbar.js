@@ -10,9 +10,9 @@ import StoreContext from '../../context/StoreContext';
 
 
 const Navbar = ({ currentUser }) => {
-    //const { shopData, currentUser } = useContext(StoreContext);
-    //console.log(shopData);
-    console.log(currentUser);
+    // const { shopData, currentUser } = useContext(StoreContext);
+    // console.log(shopData);
+    // console.log(currentUser);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light">

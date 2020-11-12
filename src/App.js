@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 
 import StoreContext from './context/StoreContext';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 import Navbar from './components/navbar/navbar';
@@ -34,7 +34,7 @@ class App extends Component {
   componentDidMount() {
     const { currentUser, setCurrentUser } = this.context;
 
-    console.log(currentUser, setCurrentUser);
+    console.log(currentUser, setCurrentUser, this.context);
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
@@ -48,7 +48,7 @@ class App extends Component {
               ...snapShot.data()
             }
           })
-          // setCurrentUser({
+          // this.context.setCurrentUser({
           //   id: snapShot.id,
           //   ...snapShot.data()
           // });
@@ -56,10 +56,10 @@ class App extends Component {
 
       } else {
         this.setState({ currentUser: userAuth });
-        //setCurrentUser(userAuth);
+        //this.context.setCurrentUser(userAuth);
       }
 
-      console.log(currentUser);
+      //console.log(this.context.currentUser);
     });
   }
 
@@ -69,6 +69,7 @@ class App extends Component {
 
   render() {
     //console.log(this.contextType, StoreContext);
+    const { currentUser, setCurrentUser } = this.context;
     return (
       <>
         <Navbar currentUser={this.state.currentUser} />
@@ -77,7 +78,8 @@ class App extends Component {
 
             <Switch>
               <Route exact path="/" component={Homepage} />
-              <Route exact path="/signin" component={SignInAndSignUpPage} />
+              <Route exact path="/signin"
+                render={() => this.state.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUpPage />)} />
               <Route exact path="/saved-lists" component={SavedLists} />
               <Route exact path="/women" component={Women} />
               <Route exact path="/men" component={Men} />

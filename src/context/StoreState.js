@@ -336,7 +336,7 @@ const StoreState = (props) => {
         dispatch({ type: 'SET_CURRENT_USER', payload: user })
     }
 
-
+    console.log(initialState)
     return (
         <StoreContext.Provider
             value={
