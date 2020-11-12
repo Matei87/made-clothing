@@ -10,9 +10,9 @@ import StoreContext from '../../context/StoreContext';
 
 
 const Navbar = ({ currentUser }) => {
-    // const { shopData, currentUser } = useContext(StoreContext);
+    const { cartItems } = useContext(StoreContext);
     // console.log(shopData);
-    // console.log(currentUser);
+    console.log(cartItems);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -37,7 +37,10 @@ const Navbar = ({ currentUser }) => {
                         <NavLink className="nav-link" to="/saved-lists"><HiOutlineHeart /></NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/checkout"><RiShoppingBagLine /></NavLink>
+                        <NavLink className="nav-link" to="/checkout">
+                            <RiShoppingBagLine />
+                            <span className="cart-item">{cartItems.length || 0}</span>
+                        </NavLink>
                     </li>
                 </ul>
             </div>

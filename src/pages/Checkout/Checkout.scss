@@ -1,0 +1,154 @@
+.checkout {
+    margin: 2rem auto;
+
+    .row {
+
+        .col-md-9.wrapper {
+            background-color: #03a9f4;
+            padding: 1rem 1.5rem; border-radius: .25rem;
+            //display: flex; flex-direction: column;
+            width: 100%;
+
+            .col-md-12 {
+                display: flex; justify-content: space-between;
+
+                margin: 1rem 0; padding: 1rem;
+                background-color: #fff;
+                //background-color: #212121;
+                border: 1px solid #000; border-radius: .25rem;
+                box-shadow: 0px 5px 20px 7px rgba( #000000, .75);
+    
+                .image-wrapper {
+                    height: 250px; width: 250px;
+    
+                    img {
+                        height: 100%; width: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .form-group.quantity {
+                    display: flex;  align-content: center;
+                }
+            }
+        }
+
+        .col-md-3 {
+            display: flex; flex-direction: column;
+
+            .wrapper {
+                padding: .5rem .75rem;
+                background: #212121;
+                color: #fff;
+                border-radius: .25rem;
+
+                .summar {
+                    position: relative;
+                    padding: 1rem 0;
+    
+                    h3 {
+                        font-weight: 400;
+                    }
+    
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: 0; bottom: 0; height: 1px; width: 100%;
+                        background-color: #fff;
+                    }
+    
+                    .product-cost, .delivery-cost {
+                        display: flex; justify-content: space-between;
+                        align-items: center; 
+    
+                        p {
+                            margin: .25rem 0;
+                        }
+    
+                    }
+    
+                    .delivery-cost {
+                        span {
+                            color: #03a9f4;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                        }
+                    }
+                }
+    
+                .total-cost {
+                    display: flex; flex-direction: column;
+                    padding: 1.5rem 0;
+    
+                    .btn {
+                        background-color: #03a9f4;
+                        color: #fff; border: none !important;
+                        font-weight: 500;
+                        font-size: 1.15rem;
+                    }
+                }
+
+            }
+            
+        }
+
+        .col-md-9:last-of-type {
+            display: flex; justify-content: space-between;
+            margin: 1rem 0; padding: 1rem 1.5rem; border-radius: .25rem;
+            background-color: #212121;
+            color: #fff;
+
+            .summar {
+                width: 70%;
+                position: relative;
+
+                h3 {
+                    font-weight: 400;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    right: 0; top: 0; width: 1px; height: 100%;
+                    background-color: #fff;
+                }
+
+                .product-cost, .delivery-cost {
+                    display: flex; justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        margin: .25rem 0;
+                    }
+
+                    span {
+                        margin-right: 1.5rem;
+                    }
+
+                }
+
+                .delivery-cost {
+                    span {
+                        color: #03a9f4;
+                        text-transform: uppercase;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .total-cost {
+                display: flex; flex-direction: column; align-self: center;
+
+                .btn {
+                    background-color: #03a9f4;
+                    color: #fff; border: none !important;
+                    font-weight: 500;
+                    font-size: 1.15rem;
+                }
+            }
+        }
+        
+    }
+}

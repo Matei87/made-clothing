@@ -20,7 +20,7 @@ const Women = () => {
         localStorage.setItem('favorites', JSON.stringify([likedProduct, ...favorites]));
         console.log(favorites);
     }
-    console.log(favorites);
+    //console.log(favorites);
 
 
     return (

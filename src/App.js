@@ -11,6 +11,7 @@ import SignInAndSignUpPage from './pages/signin-and-signup/signin-and-signup';
 import SavedLists from './pages/SavedLists/SavedLists';
 import Women from './pages/Women/Women';
 import Men from './pages/Men/Men';
+import Checkout from './pages/Checkout/Checkout';
 
 import ItemDetails from './pages/ItemDetails/ItemDetails';
 import NotFound from './pages/NotFound/NotFound';
@@ -34,7 +35,7 @@ class App extends Component {
   componentDidMount() {
     const { currentUser, setCurrentUser } = this.context;
 
-    console.log(currentUser, setCurrentUser, this.context);
+    //console.log(currentUser, setCurrentUser, this.context);
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
@@ -83,6 +84,7 @@ class App extends Component {
               <Route exact path="/saved-lists" component={SavedLists} />
               <Route exact path="/women" component={Women} />
               <Route exact path="/men" component={Men} />
+              <Route exact path="/checkout" component={Checkout} />
 
               {/* <Route exact path="/:name" component={CollectionPage} />*/}
 

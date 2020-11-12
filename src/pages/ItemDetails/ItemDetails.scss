@@ -12,6 +12,10 @@
             color: #212529;
             background: #fff; border-color: #212529;
         }
+
+        &:focus {
+            box-shadow: none !important;
+        }
     }
 
     .col-md-6 {

@@ -13,7 +13,8 @@
         width: 100%;
 
         .nav-item {
-            position: relative;
+            //position: relative;
+            display: flex; align-content: center;
 
             &.active {
                 background-color: #525050;
@@ -27,13 +28,18 @@
         .nav-link {
             color: #fff !important;
             display: flex; align-items: center;
+            position: relative;
     
             &:hover {
                 cursor: pointer;
             }
             
             svg {
-                font-size: 1.4rem; 
+                font-size: 2rem;
+            }
+            .cart-item {
+                position: absolute;
+                left: 42%; top: 35%;
             }
 
             &.active {

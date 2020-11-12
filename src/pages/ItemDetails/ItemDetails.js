@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import './ItemDetails.scss';
 
 import { useHistory, withRouter } from 'react-router-dom';
 import { HiArrowLeft, HiOutlineHeart } from "react-icons/hi";
+import StoreContext from '../../context/StoreContext';
 
 
 const ItemDetails = (props) => {
+    const { addItem, cartItems } = useContext(StoreContext);
+
     let history = useHistory();
     //console.log(props.match.params, props, history);
+    const { item } = props.location.state;
     const { id, name, image, price, colour } = props.location.state.item;
 
+    console.log(id, cartItems, item);
+
+    // useEffect(() => {
+    //     localStorage.setItem('item', JSON.stringify([item, ...cartItems]));
+    // })
+
+    const addToCart = (item) => {
+        addItem([item, ...cartItems]);
+        localStorage.setItem('cartItems', JSON.stringify([item, ...cartItems]));
+        console.log(cartItems);
+    }
+    console.log(cartItems);
     return (
         <div className="item-details container">
             <div className="btn btn-primary" onClick={() => history.goBack()}><HiArrowLeft /> Back</div>
@@ -32,7 +48,10 @@ const ItemDetails = (props) => {
                         </select>
                     </div>
                     <p className="addToCart-svg">
-                        <button className="addToCart btn">Add to cart</button>
+                        <button
+                            className="addToCart btn"
+                            onClick={() => addToCart(item)}>
+                            Add to cart</button>
                         <span><HiOutlineHeart /></span>
                     </p>
 

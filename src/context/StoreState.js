@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import StoreContext from './StoreContext';
 import StoreReducer from './StoreReducer';
 
@@ -48,6 +48,7 @@ import polkadotshirt from '../img/polka-dot-shirt.png';
 
 const StoreState = (props) => {
     const favorite = localStorage.getItem('favorites');
+    const items = localStorage.getItem('cartItems');
     //console.log(favorite);
 
     const initialState = {
@@ -170,105 +171,105 @@ const StoreState = (props) => {
                 routeName: 'men',
                 items: [
                     {
-                        id: 1,
+                        id: 16,
                         colour: 'Brown',
                         name: 'Brown Cowboy',
                         image: browncowboy,
                         price: 35
                     },
                     {
-                        id: 2,
+                        id: 17,
                         colour: 'Grey',
                         name: 'Grey Brim',
                         image: greybrim,
                         price: 25
                     },
                     {
-                        id: 3,
+                        id: 18,
                         colour: 'Grey',
                         name: 'Palm Tree Cap',
                         image: palmtreecap,
                         price: 14
                     },
                     {
-                        id: 4,
+                        id: 19,
                         colour: 'Blue',
                         name: 'Wolf Cap',
                         image: wolfcap,
                         price: 14
                     },
                     {
-                        id: 5,
+                        id: 20,
                         colour: 'Black',
                         name: 'Black Cap',
                         image: blackhat,
                         price: 20
                     },
                     {
-                        id: 6,
+                        id: 21,
                         colour: 'Black / White',
                         name: 'Adidas NMD',
                         image: adidasnmd,
                         price: 220
                     },
                     {
-                        id: 7,
+                        id: 22,
                         colour: 'Black',
                         name: 'Black Converse',
                         image: blackconverse,
                         price: 110
                     },
                     {
-                        id: 8,
+                        id: 23,
                         colour: 'White',
                         name: 'Nike White AirForce',
                         image: whitenikehightops,
                         price: 160
                     },
                     {
-                        id: 9,
+                        id: 24,
                         colour: 'Red / White',
                         name: 'Nike Red High Tops',
                         image: nikesred,
                         price: 160
                     },
                     {
-                        id: 10,
+                        id: 25,
                         colour: 'Brown / White',
                         name: 'Nike Brown High Tops',
                         image: nikebrown,
                         price: 160
                     },
                     {
-                        id: 11,
+                        id: 26,
                         colour: 'White / Black',
                         name: 'Air Jordan Limited',
                         image: nikefunky,
                         price: 190
                     },
                     {
-                        id: 12,
+                        id: 27,
                         colour: 'Brown',
                         name: 'Timberlands',
                         image: timberlands,
                         price: 200
                     },
                     {
-                        id: 13,
+                        id: 28,
                         colour: 'Black',
                         name: 'Black Jean Shearling',
                         image: blackshearling,
                         price: 125
                     },
                     {
-                        id: 14,
+                        id: 29,
                         colour: 'Blue',
                         name: 'Blue Jean Jacket',
                         image: bluejeanjacket,
                         price: 90
                     },
                     {
-                        id: 15,
+                        id: 30,
                         colour: 'Brown / White',
                         name: 'Brown Shearling',
                         image: brownshearling,
@@ -277,42 +278,42 @@ const StoreState = (props) => {
 
 
                     {
-                        id: 16,
+                        id: 31,
                         colour: 'Brown / Green / Black',
                         name: 'Camo Down Vest',
                         image: camovest,
                         price: 325
                     },
                     {
-                        id: 17,
+                        id: 32,
                         colour: 'Blue',
                         name: 'Floral T-shirt',
                         image: floralshirt,
                         price: 20
                     },
                     {
-                        id: 18,
+                        id: 33,
                         colour: 'Black / White',
                         name: 'Black & White Longsleeve',
                         image: longsleeve,
                         price: 25
                     },
                     {
-                        id: 19,
+                        id: 34,
                         colour: 'Pink',
                         name: 'Pink T-shirt',
                         image: pinkshirt,
                         price: 25
                     },
                     {
-                        id: 20,
+                        id: 35,
                         colour: 'Blue',
                         name: 'Jean Long Sleeve',
                         image: rollupjeanshirt,
                         price: 40
                     },
                     {
-                        id: 21,
+                        id: 36,
                         colour: 'Brown / Black',
                         name: 'Burgundy T-shirt',
                         image: polkadotshirt,
@@ -323,7 +324,8 @@ const StoreState = (props) => {
         ],
         currentUser: null,
         isLoading: true,
-        favorites: JSON.parse(favorite) || []
+        favorites: JSON.parse(favorite) || [],
+        cartItems: JSON.parse(items) || []
     }
     const [state, dispatch] = useReducer(StoreReducer, initialState);
 
@@ -335,8 +337,11 @@ const StoreState = (props) => {
     const setCurrentUser = user => {
         dispatch({ type: 'SET_CURRENT_USER', payload: user })
     }
+    const addItem = item => {
+        dispatch({ type: 'ADD_ITEM_TO_CART', payload: item })
+    }
 
-    console.log(initialState)
+    console.log(initialState.cartItems);
     return (
         <StoreContext.Provider
             value={
@@ -346,9 +351,11 @@ const StoreState = (props) => {
                     isLoading: initialState.isLoading,
                     favorites: initialState.favorites,
                     currentUser: initialState.currentUser,
+                    cartItems: initialState.cartItems,
 
                     addFavorite,
-                    setCurrentUser
+                    setCurrentUser,
+                    addItem
                 }
             }
         >

@@ -5,12 +5,17 @@ const StoreReducer = (state, action) => {
             return {
                 ...state,
                 favorites: [action.payload, ...state.favorites]
-            }
+            };
         case 'SET_CURRENT_USER':
             return {
                 ...state,
                 currentUser: action.payload
-            }
+            };
+        case 'ADD_ITEM_TO_CART':
+            return {
+                ...state,
+                cartItems: [action.payload, ...state.cartItems]
+            };
         default:
             return state;
     }
