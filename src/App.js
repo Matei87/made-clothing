@@ -8,7 +8,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Navbar from './components/navbar/navbar';
 import Homepage from './pages/Homepage/Homepage';
 import SignInAndSignUpPage from './pages/signin-and-signup/signin-and-signup';
-import SavedLists from './pages/SavedLists/SavedLists';
+import Favorite from './pages/Favorite/Favorite';
 import Women from './pages/Women/Women';
 import Men from './pages/Men/Men';
 import Checkout from './pages/Checkout/Checkout';
@@ -81,7 +81,7 @@ class App extends Component {
               <Route exact path="/" component={Homepage} />
               <Route exact path="/signin"
                 render={() => this.state.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUpPage />)} />
-              <Route exact path="/saved-lists" component={SavedLists} />
+              <Route exact path="/favorite" component={Favorite} />
               <Route exact path="/women" component={Women} />
               <Route exact path="/men" component={Men} />
               <Route exact path="/checkout" component={Checkout} />

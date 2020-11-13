@@ -12,15 +12,19 @@ const Men = () => {
     const { items } = shopData[1];
     //console.log(items);
 
-
     const like = (id) => {
+        const exist = favorites.find(x => x.id === id);
+        console.log(exist);
+        if (exist) {
+            return;
+        }
         let likedProduct = items.find(item => item.id === id);
         addFavorite([likedProduct, ...favorites]);
         localStorage.setItem('favorites', JSON.stringify([likedProduct, ...favorites]));
-        console.log(favorites);
+        console.log(likedProduct, favorites, id);
     }
-    //console.log(favorites);
-
+    let favoritesId = favorites.map(x => x.id);
+    console.log(favorites);
 
     return (
         <div className="collection-page">
@@ -39,7 +43,8 @@ const Men = () => {
                         <div className="content-over">
                             <span>{item.name}</span>
                             <span>${item.price}</span>
-                            <span className="heart"
+                            <span
+                                className={favoritesId.find(x => x === item.id) ? 'heart active' : 'heart'}
                                 onClick={() => like(item.id)}
                             ><HiOutlineHeart /></span>
                         </div>

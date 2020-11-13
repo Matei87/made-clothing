@@ -46,7 +46,6 @@
             span.heart {
                 width: 35px; height: 35px;
                 border-radius: 50%;
-                //background: #fff;
                 background: #03a9f4;
                 display: flex; justify-content: center;
 
@@ -62,6 +61,13 @@
                     }
                 }
                 
+            }
+
+            .heart.active {
+
+                svg {
+                    fill: #fff;
+                }
             }
             
         }

@@ -11,18 +11,24 @@ const Women = () => {
     let history = useHistory();
 
     const { items } = shopData[0];
-    //console.log(items);
-
+    console.log(favorites);
 
     const like = (id) => {
+        const exist = favorites.find(x => x.id === id);
+        console.log(exist);
+        if (exist) {
+            return;
+        }
         let likedProduct = items.find(item => item.id === id);
         addFavorite([likedProduct, ...favorites]);
         localStorage.setItem('favorites', JSON.stringify([likedProduct, ...favorites]));
-        console.log(favorites);
+
+        console.log(likedProduct, favorites, id);
     }
-    //console.log(favorites);
+    let favoritesId = favorites.map(x => x.id);
+    console.log(favorites);
 
-
+    //favoritesId.find(x => x === item.id)
     return (
         <div className="collection-page">
             <h2 className="collection-title">Women</h2>
@@ -40,7 +46,8 @@ const Women = () => {
                         <div className="content-over">
                             <span>{item.name}</span>
                             <span>${item.price}</span>
-                            <span className="heart"
+                            <span
+                                className={favoritesId.find(x => x === item.id) ? 'heart active' : 'heart'}
                                 onClick={() => like(item.id)}
                             ><HiOutlineHeart /></span>
                         </div>

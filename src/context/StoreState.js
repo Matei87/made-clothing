@@ -323,7 +323,6 @@ const StoreState = (props) => {
             }
         ],
         currentUser: null,
-        isLoading: true,
         favorites: JSON.parse(favorite) || [],
         cartItems: JSON.parse(items) || []
     }
@@ -333,6 +332,9 @@ const StoreState = (props) => {
     //ACTIONS
     const addFavorite = favorites => {
         dispatch({ type: 'ADD_FAVORITE', payload: favorites });
+    }
+    const removeFavorite = id => {
+        dispatch({ type: 'REMOVE_FAVORITE', payload: id });
     }
     const setCurrentUser = user => {
         dispatch({ type: 'SET_CURRENT_USER', payload: user })
@@ -348,14 +350,15 @@ const StoreState = (props) => {
                 {
                     sections: initialState.sections,
                     shopData: initialState.shopData,
-                    isLoading: initialState.isLoading,
                     favorites: initialState.favorites,
                     currentUser: initialState.currentUser,
                     cartItems: initialState.cartItems,
 
                     addFavorite,
                     setCurrentUser,
-                    addItem
+                    addItem,
+
+                    removeFavorite
                 }
             }
         >

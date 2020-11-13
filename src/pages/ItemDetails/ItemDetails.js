@@ -7,7 +7,7 @@ import StoreContext from '../../context/StoreContext';
 
 
 const ItemDetails = (props) => {
-    const { addItem, cartItems } = useContext(StoreContext);
+    const { addItem, cartItems, favorites, addFavorite } = useContext(StoreContext);
 
     let history = useHistory();
     //console.log(props.match.params, props, history);
@@ -16,16 +16,27 @@ const ItemDetails = (props) => {
 
     console.log(id, cartItems, item);
 
-    // useEffect(() => {
-    //     localStorage.setItem('item', JSON.stringify([item, ...cartItems]));
-    // })
-
     const addToCart = (item) => {
         addItem([item, ...cartItems]);
         localStorage.setItem('cartItems', JSON.stringify([item, ...cartItems]));
         console.log(cartItems);
     }
     console.log(cartItems);
+
+    const like = (id) => {
+        const exist = favorites.find(x => x.id === id);
+        console.log(exist);
+        if (exist) {
+            return;
+        }
+
+        addFavorite([item, ...favorites]);
+        localStorage.setItem('favorites', JSON.stringify([item, ...favorites]));
+        console.log(favorites, id);
+    }
+    let favoritesId = favorites.map(x => x.id);
+    console.log(favorites, favoritesId, id);
+
     return (
         <div className="item-details container">
             <div className="btn btn-primary" onClick={() => history.goBack()}><HiArrowLeft /> Back</div>
@@ -52,7 +63,10 @@ const ItemDetails = (props) => {
                             className="addToCart btn"
                             onClick={() => addToCart(item)}>
                             Add to cart</button>
-                        <span><HiOutlineHeart /></span>
+                        <span
+                            className={favoritesId.find(x => x === item.id) ? 'heart active' : 'heart'}
+                            onClick={() => like(id)}
+                        ><HiOutlineHeart /></span>
                     </p>
 
                 </div>

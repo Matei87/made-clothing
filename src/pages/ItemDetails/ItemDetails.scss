@@ -85,6 +85,13 @@
                     }
                 }
             }
+
+            .heart.active {
+
+                svg {
+                    fill: #fff;
+                }
+            }
             
         }
         
