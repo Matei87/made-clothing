@@ -14,28 +14,28 @@ const ItemDetails = (props) => {
     const { item } = props.location.state;
     const { id, name, image, price, colour } = props.location.state.item;
 
-    console.log(id, cartItems, item);
+    //console.log(id, cartItems, item);
 
     const addToCart = (item) => {
         addItem([item, ...cartItems]);
         localStorage.setItem('cartItems', JSON.stringify([item, ...cartItems]));
-        console.log(cartItems);
+        //console.log(cartItems);
     }
-    console.log(cartItems);
+    //console.log(cartItems);
 
     const like = (id) => {
         const exist = favorites.find(x => x.id === id);
-        console.log(exist);
+        //console.log(exist);
         if (exist) {
             return;
         }
 
         addFavorite([item, ...favorites]);
         localStorage.setItem('favorites', JSON.stringify([item, ...favorites]));
-        console.log(favorites, id);
+        //console.log(favorites, id);
     }
     let favoritesId = favorites.map(x => x.id);
-    console.log(favorites, favoritesId, id);
+    //console.log(favorites, favoritesId, id);
 
     return (
         <div className="item-details container">

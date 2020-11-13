@@ -1,18 +1,19 @@
 import React, { useContext } from 'react';
 import './Checkout.scss';
 
+import { Link } from 'react-router-dom';
 import StoreContext from '../../context/StoreContext';
 
 const Checkout = () => {
     const { cartItems } = useContext(StoreContext);
-    console.log(cartItems);
+    //console.log(cartItems);
 
-    return (
+    return (<>{cartItems.length > 0 ?
         <div className="container checkout">
             <div className="row">
                 <div className="col-md-9 wrapper" >
                     {cartItems ? cartItems.map(item => (
-                        <div className="col-md-12" key={item.id} > {console.log(item)}
+                        <div className="col-md-12" key={item.id}>
                             <div className="image-wrapper">
                                 <img src={item.image} alt={item.name} />
                             </div>
@@ -67,6 +68,12 @@ const Checkout = () => {
 
             </div>
         </div >
+        : <div className="empty-list">
+            <h2>Your basket is empty</h2>
+            <p>To add products into basket please go back to the shop.</p>
+            <Link to="/women" className="btn btn-outline-primary btn-block">Women</Link>
+            <Link to="/men" className="btn btn-outline-primary btn-block">Men</Link>
+        </div>}</>
     )
 }
 

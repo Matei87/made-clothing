@@ -19,6 +19,20 @@ const StoreReducer = (state, action) => {
                 currentUser: action.payload
             };
         case 'ADD_ITEM_TO_CART':
+            // const item = action.payload;
+            // let ids = item.map(x => x.id);
+            // let idss = ids.find(x => x)
+            // console.log(ids, idss);
+            // const existItem = state.cartItems.map(x => x.id);
+            // //const exist = existItem.find(x => x === idss);
+            // const exist = existItem.includes(idss)
+            // console.log(exist, ids, existItem, item[0], idss);
+            // if (existItem) {
+            //     return {
+            //         ...state,
+            //         cartItems: state.cartItems.map(x => console.log(x))
+            //     }
+            // }
             return {
                 ...state,
                 cartItems: [action.payload, ...state.cartItems]

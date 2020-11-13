@@ -14,17 +14,17 @@ const Men = () => {
 
     const like = (id) => {
         const exist = favorites.find(x => x.id === id);
-        console.log(exist);
+        //console.log(exist);
         if (exist) {
             return;
         }
         let likedProduct = items.find(item => item.id === id);
         addFavorite([likedProduct, ...favorites]);
         localStorage.setItem('favorites', JSON.stringify([likedProduct, ...favorites]));
-        console.log(likedProduct, favorites, id);
+        //console.log(likedProduct, favorites, id);
     }
     let favoritesId = favorites.map(x => x.id);
-    console.log(favorites);
+    //console.log(favorites);
 
     return (
         <div className="collection-page">

@@ -11,7 +11,7 @@ const Women = () => {
     let history = useHistory();
 
     const { items } = shopData[0];
-    console.log(favorites);
+    //console.log(favorites);
 
     const like = (id) => {
         const exist = favorites.find(x => x.id === id);
@@ -23,10 +23,10 @@ const Women = () => {
         addFavorite([likedProduct, ...favorites]);
         localStorage.setItem('favorites', JSON.stringify([likedProduct, ...favorites]));
 
-        console.log(likedProduct, favorites, id);
+        //console.log(likedProduct, favorites, id);
     }
     let favoritesId = favorites.map(x => x.id);
-    console.log(favorites);
+    //console.log(favorites);
 
     //favoritesId.find(x => x === item.id)
     return (

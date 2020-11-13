@@ -12,7 +12,7 @@ import StoreContext from '../../context/StoreContext';
 const Navbar = ({ currentUser }) => {
     const { cartItems } = useContext(StoreContext);
     // console.log(shopData);
-    console.log(cartItems);
+    //console.log(cartItems);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
