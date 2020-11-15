@@ -17,8 +17,8 @@ const ItemDetails = (props) => {
     //console.log(id, cartItems, item);
 
     const addToCart = (item) => {
-        addItem([item, ...cartItems]);
-        localStorage.setItem('cartItems', JSON.stringify([item, ...cartItems]));
+        addItem([...cartItems, item]);
+        localStorage.setItem('cartItems', JSON.stringify([...cartItems, item]));
         //console.log(cartItems);
     }
     //console.log(cartItems);

@@ -6,7 +6,16 @@ import StoreContext from '../../context/StoreContext';
 
 const Checkout = () => {
     const { cartItems } = useContext(StoreContext);
-    //console.log(cartItems);
+    // let itemz = JSON.parse(localStorage.getItem('cartItems'));
+    // let data = cartItems;
+    // let item = cartItems.map(x => x['qty'] = 1)
+    // let a = itemz.find(x => x.id)
+    // let exist = data.find(ix => ix.id === a.id);
+    // if (exist) {
+    //     item = cartItems.map(x => x['qty'])
+    // }
+    // console.log(cartItems, itemz, data, exist);
+
 
     return (<>{cartItems.length > 0 ?
         <div className="container checkout">

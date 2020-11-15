@@ -1,9 +1,19 @@
+const addItemToCart = (cartItems, cartItemToAdd) => {
+    const itemAct = cartItemToAdd.find(x => x.id)
+    let exist = cartItems.find(x => x.id === itemAct.id)
+
+    return (exist) ?
+        [...cartItems.map(cartItem =>
+            cartItem.id === cartItemToAdd.id ? { ...cartItem, qty: cartItem.qty + 1 } : cartItem
+        )]
+        :
+        [...cartItems, { ...cartItemToAdd, qty: 1 }]
+}
+
 const StoreReducer = (state, action) => {
     console.log(state, action);
     switch (action.type) {
         case 'ADD_FAVORITE':
-            //let item = action.payload;
-            //const exist = state.favorites
             return {
                 ...state,
                 favorites: [action.payload, ...state.favorites]
@@ -19,24 +29,35 @@ const StoreReducer = (state, action) => {
                 currentUser: action.payload
             };
         case 'ADD_ITEM_TO_CART':
-            // const item = action.payload;
-            // let ids = item.map(x => x.id);
+            const itemAct = action.payload.find(x => x.id);
+            const items = action.payload.map(x => x)
+            const act = action.payload;
+            const itemz = action.payload.qty;
+            //let ids = item.find(x => x);
             // let idss = ids.find(x => x)
-            // console.log(ids, idss);
-            // const existItem = state.cartItems.map(x => x.id);
-            // //const exist = existItem.find(x => x === idss);
-            // const exist = existItem.includes(idss)
-            // console.log(exist, ids, existItem, item[0], idss);
-            // if (existItem) {
-            //     return {
-            //         ...state,
-            //         cartItems: state.cartItems.map(x => console.log(x))
-            //     }
-            // }
-            return {
-                ...state,
-                cartItems: [action.payload, ...state.cartItems]
-            };
+            let exist = state.cartItems.find(x => x.id === itemAct[0])
+            console.log(state.cartItems, items, exist);
+
+            if (exist) {
+                return {
+                    ...state,
+                    cartItems: state.cartItems.map(item =>
+                        item.id === itemAct[0] ? { ...item, qty: item.qty + 1 } : item
+                    )
+                }
+            } else {
+                return {
+                    ...state,
+                    cartItems: [...state.cartItems, { ...action.payload, qty: 1 }]
+                };
+            }
+
+
+        // return {
+        //     ...state,
+        //     cartItems: addItemToCart(state.cartItems, action.payload)
+        // }
+
         default:
             return state;
     }
