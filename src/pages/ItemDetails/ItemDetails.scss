@@ -18,82 +18,139 @@
         }
     }
 
-    .col-md-6 {
-        img {
-            border: 1px solid #000;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            
-        }
+    .row {
+        
+        .col-md-4 {
 
-        .name {
-            margin: 2rem 0 1rem;
-            font-weight: 300; font-size: 2rem;
-        }
-
-        .price {
-            font-weight: 600; font-size: 1.25rem;
-        }
-
-        .colour { 
-            font-weight: 600;
-            font-size: .85rem;
-            
-            .colour-inner {
-                font-weight: 400 !important;
-            }
-        }
-
-        .quantity {
-            width: 50%;
-
-            .custom-select {
-                border-radius: 0 !important;
-            }
-            // .quantity-select {
-            //     border-radius: 0 !important;
-            // }
-        }
-
-        .addToCart-svg {
-            margin: 0;
-            display: flex; align-items: center;
-
-            .addToCart {
-                margin: 0;
-                color: #fff;
-                text-transform: uppercase;
-                padding: .6875rem 2.5rem !important;
+            .image-wrapper {
+                width: 100%; height: 100%;
     
-                &:hover {
-                    color: #000;
+                img {
+                    border: 1px solid #000;
+                    width: 100%; height: 100%;
+                    object-fit: cover;
                 }
             }
+        }
+    
+        .col-md-6 {
+            
+            .w-55 {
+                width: 55%;
 
-            span {
-                width: 40px; height: 40px; background:#03a9f4;
-                border-radius: 50%; margin-left: 3rem;
-                display: flex; align-content: center; justify-content: center;
-
-                svg {
-                    display: flex; align-self: center;
-                    stroke: #fff; font-size: 1.75rem;
-
-                    &:hover {
-                        cursor: pointer;
-                        fill: #fff;
+                p {
+                    margin: 0;
+                    display: flex; align-items: center; justify-content: space-between;
+                }
+    
+                .brand {
+                    //font-weight: 600;
+                    font-size: 1rem;
+    
+                    .brand-inner {
+                        color: #03a9f4;
+                        font-weight: 400 !important;
+                        font-size: 1.15rem;
                     }
                 }
-            }
-
-            .heart.active {
-
-                svg {
-                    fill: #fff;
+    
+                .name {
+                    margin: 1rem 0;
+                    font-weight: 400; font-size: 2rem;
+                }
+        
+                .price {
+                    //font-weight: 600;
+                    font-size: 1rem;
+    
+                    .price-inner {
+                        color: #03a9f4;
+                        font-weight: 400 !important;
+                        font-size: 1.25rem;
+                    }
+                }
+        
+                .colour { 
+                    //font-weight: 600;
+                    font-size: 1rem;
+                    
+                    .colour-inner {
+                        color: #03a9f4;
+                        font-size: 1.15rem;
+                        font-weight: 400 !important;
+                    }
+                }
+        
+                .quantity {
+                    margin: 1rem 0;
+        
+                    .custom-select {
+                        border-radius: 0 !important;
+                    }
+                    // .quantity-select {
+                    //     border-radius: 0 !important;
+                    // }
+                }
+        
+                .addToCart-svg {
+                    margin: 0;
+                    display: flex; align-items: center;
+        
+                    .addToCart {
+                        margin: 0;
+                        color: #fff;
+                        text-transform: uppercase;
+                        padding: .6875rem 2.5rem !important;
+            
+                        &:hover {
+                            color: #000;
+                        }
+                    }
+        
+                    span {
+                        width: 40px; height: 40px; background:#03a9f4;
+                        border-radius: 50%; margin-left: 3rem;
+                        display: flex; align-content: center; justify-content: center;
+        
+                        svg {
+                            display: flex; align-self: center;
+                            stroke: #fff; font-size: 1.75rem;
+        
+                            &:hover {
+                                cursor: pointer;
+                                fill: #fff;
+                            }
+                        }
+                    }
+        
+                    .heart.active {
+        
+                        svg {
+                            fill: #fff;
+                        }
+                    }
+                    
                 }
             }
             
+            
         }
-        
+    }
+
+}
+
+.item-description {
+    margin-bottom: 2rem;
+
+    .col-md-7 {
+        padding: 0;
+
+        h3 {
+
+        }
+
+        p {
+            margin: 0;
+        }
     }
 }

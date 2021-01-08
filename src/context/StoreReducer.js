@@ -1,13 +1,10 @@
 const addItemToCart = (cartItems, cartItemToAdd) => {
-    const itemAct = cartItemToAdd.find(x => x.id)
-    let exist = cartItems.find(x => x.id === itemAct.id)
+    const itemAct = cartItemToAdd.find(x => x.id);
+    let exist = cartItems.find(x => x.id === itemAct.id);
 
-    return (exist) ?
-        [...cartItems.map(cartItem =>
-            cartItem.id === cartItemToAdd.id ? { ...cartItem, qty: cartItem.qty + 1 } : cartItem
-        )]
-        :
-        [...cartItems, { ...cartItemToAdd, qty: 1 }]
+    return (exist) ? [...cartItems.map(cartItem =>
+        cartItem.id === cartItemToAdd.id ? { ...cartItem, qty: cartItem.qty + 1 } : cartItem
+    )] : [...cartItems, { ...cartItemToAdd, qty: 1 }]
 }
 
 const StoreReducer = (state, action) => {
@@ -35,14 +32,21 @@ const StoreReducer = (state, action) => {
             const itemz = action.payload.qty;
             //let ids = item.find(x => x);
             // let idss = ids.find(x => x)
-            let exist = state.cartItems.find(x => x.id === itemAct[0])
+            let exist = state.cartItems.find(x => x.id === items.id)
             console.log(state.cartItems, items, exist);
 
             if (exist) {
                 return {
                     ...state,
-                    cartItems: state.cartItems.map(item =>
-                        item.id === itemAct[0] ? { ...item, qty: item.qty + 1 } : item
+                    cartItems: state.cartItems.map(item => {
+
+                        if (item.id === items.id) {
+                            return { ...item, qty: item.qty + 1 }
+                        } return item;
+
+                        // item.id === items.id ? { ...item, [item.id]: { ...item, qty: item.qty + 1 } }
+                        //     : item
+                    }
                     )
                 }
             } else {

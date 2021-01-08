@@ -4,6 +4,7 @@ import './Checkout.scss';
 import { Link } from 'react-router-dom';
 import StoreContext from '../../context/StoreContext';
 
+
 const Checkout = () => {
     const { cartItems } = useContext(StoreContext);
     // let itemz = JSON.parse(localStorage.getItem('cartItems'));
@@ -15,7 +16,9 @@ const Checkout = () => {
     //     item = cartItems.map(x => x['qty'])
     // }
     // console.log(cartItems, itemz, data, exist);
-
+    let items = cartItems.map(item => item.price);
+    let totalPrice = items.reduce((acc, curr) => acc + curr);
+    console.log(totalPrice);
 
     return (<>{cartItems.length > 0 ?
         <div className="container checkout">
@@ -43,7 +46,7 @@ const Checkout = () => {
                             <h3>Summary</h3>
                             <div className="product-cost">
                                 <p>Products cost: </p>
-                                <span>$123</span>
+                                <span>${totalPrice}</span>
                             </div>
                             <div className="delivery-cost">
                                 <p>Delivery cost: </p>
@@ -51,7 +54,7 @@ const Checkout = () => {
                             </div>
                         </div>
                         <div className="total-cost">
-                            <h3>Total: $123</h3>
+                            <h3>Total: ${totalPrice}</h3>
                             <button className="btn btn-outline-primary btn-block">Continue</button>
                         </div>
                     </div>
@@ -62,7 +65,7 @@ const Checkout = () => {
                         <h3>Summary</h3>
                         <div className="product-cost">
                             <p>Products cost: </p>
-                            <span>$123</span>
+                            <span>${totalPrice}</span>
                         </div>
                         <div className="delivery-cost">
                             <p>Delivery cost: </p>
@@ -70,7 +73,7 @@ const Checkout = () => {
                         </div>
                     </div>
                     <div className="total-cost">
-                        <h3>Total: $123</h3>
+                        <h3>Total: ${totalPrice}</h3>
                         <button className="btn btn-outline-primary btn-block">Continue</button>
                     </div>
                 </div>

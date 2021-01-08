@@ -2,15 +2,16 @@ import React, { useContext } from 'react';
 
 import StoreContext from '../../context/StoreContext';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 
 const Favorite = () => {
     const { favorites, removeFavorite } = useContext(StoreContext);
-    //console.log(favorites);
+    let history = useHistory();
 
     const unlike = (id) => {
         let unlikeProduct = favorites.filter(item => item.id !== id);
-        removeFavorite(id)
+        removeFavorite(id);
         localStorage.setItem('favorites', JSON.stringify(unlikeProduct));
         //console.log(id, unlikeProduct);
     }
@@ -22,11 +23,16 @@ const Favorite = () => {
                 {favorites.map(item => (
                     <div className="collection-item" key={item.id} >
                         <div className="image-wrapper">
-                            <img src={item.image} alt="image" />
+                            <img src={item.image} alt="image"
+                                onClick={() => history.push({
+                                    pathname: `${(item.routeName)}/${(item.name).split(' ').join('-').toLowerCase()}`,
+                                    state: { item: item }
+                                })}
+                            />
                         </div>
                         <div className="content-over">
                             <span>{item.name}</span>
-                            <span>{item.price}</span>
+                            <span>${item.price}</span>
                             <span
                                 className="heart"
                                 onClick={() => unlike(item.id)}
