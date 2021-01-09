@@ -85,6 +85,7 @@ const StoreState = (props) => {
                         image: greenbeanie,
                         price: 18,
                         brand: 'Negi',
+                        description: 'Embracing freedom, identity and style, Negi offers a collection of understated elegance and timeless cool. Focusing on clean, contemporary lines with its tailoring, Negi creates a subtle, sophisticated vibe with slouchy knitwear, oversized blazers and premium jersey basics. Its all about the details too, with quality finishes, luxurious leather pieces and sequin-embellished dresses.',
                         routeName: 'women'
                     },
                     {
@@ -94,6 +95,7 @@ const StoreState = (props) => {
                         image: redbeanie,
                         price: 18,
                         brand: 'KZEMATLI',
+                        description: 'Taking inspiration from street-style culture, KZEMATLIs going-out-out pieces dress you for the party and the after-party, too. Turn up in its flared trousers, open-back dresses and ruched bodies, or keep things classic with a strong LBD. Friday night’s look, sorted.',
                         routeName: 'women'
                     },
                     {
@@ -103,6 +105,7 @@ const StoreState = (props) => {
                         image: bluesnapback,
                         price: 16,
                         brand: 'Thelibian Supply Co.',
+                        description: 'Inspired by beaches, blue skies and sunshine, Southern California label Thelibian Supply Co. champions an endless summer. Never taking itself too seriously, its laid-back style is infused with surf and skate culture, making every T-shirt, maxi dress and skater skirt effortlessly cool.',
                         routeName: 'women'
                     },
                     {
@@ -111,7 +114,8 @@ const StoreState = (props) => {
                         name: 'Adidas Yeezy',
                         image: yeezy,
                         price: 280,
-                        brand: 'Ann Arbor Co.',
+                        brand: 'Adidas',
+                        description: 'Key players in everything activewear-related, it doesn’t get more iconic than Adidas. Sporting some of the most wanted trainers in the game, browse Air Max 90s and Air Force 1s, as well as Cortez and Joyride styles. Get off-duty looks down with tracksuits, T-shirts and accessories in our Adidas at Made Clothing, or scroll performance leggings and sports bras from Adidas Training and Adidas Running for an extra dose of motivation.',
                         routeName: 'women'
                     },
                     {
@@ -131,6 +135,7 @@ const StoreState = (props) => {
                         image: browntrench,
                         price: 185,
                         brand: 'Drum or XX',
+                        description: 'Outfit sorted but don’t have the footwear to go with it? Drum or XX has every style of shoe to help pull your look together, whatever the occasion. Expect chunky trainers for your everyday vibe, as well as chic, strappy heeled sandals to elevate any look. In the Drum or XX at Made Clothing, browse everything from western boots to the 90s platform soles the brand helped redefine.',
                         routeName: 'women'
                     },
                     {
@@ -200,6 +205,7 @@ const StoreState = (props) => {
                         image: whitevest,
                         price: 20,
                         brand: 'HAPPYPOP',
+                        description: 'Inspired by beaches, blue skies and sunshine, Southern California label HAPPYPOP champions an endless summer. Never taking itself too seriously, its laid-back style is infused with surf and skate culture, making every T-shirt, maxi dress and skater skirt effortlessly cool.',
                         routeName: 'women'
                     }
                 ]
