@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import './Homepage.scss';
 
-import StoreContext from '../../context/StoreContext';
+//import StoreContext from '../../context/StoreContext';
 import Header from '../../components/header/header';
 import Spinner from '../../components/spinner/spinner';
 
 const Homepage = () => {
-    const { isLoading, shopData } = useContext(StoreContext);
+    //const { isLoading, shopData } = useContext(StoreContext);
 
     return (
         < div className="homepage">

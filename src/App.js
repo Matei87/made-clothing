@@ -4,6 +4,8 @@ import './App.scss';
 import StoreContext from './context/StoreContext';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './redux/user/user.actions';
 
 import Navbar from './components/navbar/navbar';
 import Homepage from './pages/Homepage/Homepage';
@@ -25,15 +27,11 @@ import { auth, createUserProfileDocument } from './firebase/firebase';
 
 
 class App extends Component {
-  static contextType = StoreContext;
-
-  state = {
-    currentUser: null
-  }
+  //static contextType = StoreContext;
 
 
   componentDidMount() {
-    const { currentUser, setCurrentUser } = this.context;
+    const { setCurrentUser } = this.props;
 
     //console.log(currentUser, setCurrentUser, this.context);
 
@@ -43,7 +41,7 @@ class App extends Component {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          this.setState({
+          setCurrentUser({
             currentUser: {
               id: snapShot.id,
               ...snapShot.data()
@@ -54,11 +52,11 @@ class App extends Component {
           //   ...snapShot.data()
           // });
         });
-
-      } else {
-        this.setState({ currentUser: userAuth });
-        //this.context.setCurrentUser(userAuth);
       }
+
+      setCurrentUser(userAuth);
+      //this.context.setCurrentUser(userAuth);
+
 
       //console.log(this.context.currentUser);
     });
@@ -73,14 +71,14 @@ class App extends Component {
     const { currentUser, setCurrentUser } = this.context;
     return (
       <>
-        <Navbar currentUser={this.state.currentUser} />
+        <Navbar />
         <ScrollToTop>
           <div className="container-fluid">
 
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route exact path="/signin"
-                render={() => this.state.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUpPage />)} />
+                render={() => this.props.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUpPage />)} />
               <Route exact path="/favorite" component={Favorite} />
               <Route exact path="/women" component={Women} />
               <Route exact path="/men" component={Men} />
@@ -100,4 +98,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToPros = ({ user }) => ({
+  currentUser: user.currentUser
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+export default connect(mapStateToPros, mapDispatchToProps)(App);

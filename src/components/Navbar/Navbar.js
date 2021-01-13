@@ -1,16 +1,19 @@
 import React, { useContext } from 'react';
 import './navbar.scss';
 
+import { connect } from 'react-redux';
 import Logo from '../../img/logo1.png';
 import { NavLink } from 'react-router-dom';
 import { RiShoppingBagLine } from "react-icons/ri";
 import { HiOutlineHeart } from "react-icons/hi";
 import { auth } from '../../firebase/firebase';
-import StoreContext from '../../context/StoreContext';
+//import StoreContext from '../../context/StoreContext';
+import { selectCartItemsCount } from '../../redux/cart/cart.selector'
+import { selectCurrentUser } from '../../redux/user/user.selector';
 
 
-const Navbar = ({ currentUser }) => {
-    const { cartItems } = useContext(StoreContext);
+const Navbar = ({ currentUser, itemCount }) => {
+    //const { cartItems } = useContext(StoreContext);
     // console.log(shopData);
     //console.log(cartItems);
 
@@ -39,7 +42,10 @@ const Navbar = ({ currentUser }) => {
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/checkout">
                             <RiShoppingBagLine />
-                            <span className="cart-item">{cartItems.length || 0}</span>
+                            <span className="cart-item">
+                                {itemCount}
+                                {/* {cartItems.length || 0} */}
+                            </span>
                         </NavLink>
                     </li>
                 </ul>
@@ -48,4 +54,9 @@ const Navbar = ({ currentUser }) => {
     )
 }
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+    currentUser: selectCurrentUser(state),
+    itemCount: selectCartItemsCount(state)
+})
+
+export default connect(mapStateToProps)(Navbar);

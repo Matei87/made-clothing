@@ -3,44 +3,48 @@ import './ItemDetails.scss';
 
 import { useHistory, withRouter } from 'react-router-dom';
 import { HiArrowLeft, HiOutlineHeart } from "react-icons/hi";
-import StoreContext from '../../context/StoreContext';
+//import StoreContext from '../../context/StoreContext';
+import { connect } from 'react-redux';
+import { addItem } from '../../redux/cart/cart.actions';
 
 
-const ItemDetails = (props) => {
-    const { addItem, cartItems, favorites, addFavorite } = useContext(StoreContext);
+const ItemDetails = (item) => {
+    //const { addItem, cartItems, favorites, addFavorite } = useContext(StoreContext);
 
-    let history = useHistory();
+    //let history = useHistory();
     //console.log(props.match.params, props, history);
-    const { item } = props.location.state;
-    const { id, name, image, price, colour, brand, description } = props.location.state.item;
+    //const { item } = props.location.state;
+    const { id, name, image, price, colour, brand, description, addItem } = item;
 
-    console.log(item);
+    //console.log(item);
 
-    const addToCart = (item) => {
-        addItem([...cartItems, item]);
-        localStorage.setItem('cartItems', JSON.stringify([...cartItems, item]));
-        //console.log(cartItems);
-    }
+    // const addToCart = (item) => {
+    //     addItem([...cartItems, item]);
+    //     localStorage.setItem('cartItems', JSON.stringify([...cartItems, item]));
+    //     //console.log(cartItems);
+    // }
     //console.log(cartItems);
 
-    const like = (id) => {
-        const exist = favorites.find(x => x.id === id);
-        //console.log(exist);
-        if (exist) {
-            return;
-        }
+    // const like = (id) => {
+    //     const exist = favorites.find(x => x.id === id);
+    //     //console.log(exist);
+    //     if (exist) {
+    //         return;
+    //     }
 
-        addFavorite([item, ...favorites]);
-        localStorage.setItem('favorites', JSON.stringify([item, ...favorites]));
-        //console.log(favorites, id);
-    }
-    let favoritesId = favorites.map(x => x.id);
+    //     addFavorite([item, ...favorites]);
+    //     localStorage.setItem('favorites', JSON.stringify([item, ...favorites]));
+    //     //console.log(favorites, id);
+    // }
+    // let favoritesId = favorites.map(x => x.id);
     //console.log(favorites, favoritesId, id);
 
     return (
         <>
             <div className="item-details container">
-                <div className="btn btn-primary" onClick={() => history.goBack()}><HiArrowLeft /> Back</div>
+                <div className="btn btn-primary"
+                // onClick={() => history.goBack()}
+                ><HiArrowLeft /> Back</div>
                 <div className="row">
                     <div className="col-md-4">
                         <div className="image-wrapper">
@@ -66,12 +70,13 @@ const ItemDetails = (props) => {
                             <p className="addToCart-svg">
                                 <button
                                     className="addToCart btn"
-                                    onClick={() => addToCart(item)}>
-                                    Add to cart</button>
-                                <span
+                                    onClick={() => addItem(item)}>
+                                    Add to cart
+                                </button>
+                                {/* <span
                                     className={favoritesId.find(x => x === item.id) ? 'heart active' : 'heart'}
                                     onClick={() => like(id)}
-                                ><HiOutlineHeart /></span>
+                                ><HiOutlineHeart /></span> */}
                             </p>
                         </div>
 
@@ -90,4 +95,8 @@ const ItemDetails = (props) => {
     )
 }
 
-export default ItemDetails;
+const mapDispatchToProps = dispatch => ({
+    addItem: item => dispatch(addItem(item))
+})
+
+export default connect(null, mapDispatchToProps)(ItemDetails);
