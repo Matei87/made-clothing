@@ -1,4 +1,46 @@
-const SHOP_DATA =
+//hats
+import blackhat from '../../img/black-hat.png';
+import brownbrim from '../../img/brown-brim.png';
+import bluebeanie from '../../img/blue-beanie.png';
+import browncowboy from '../../img/brown-cowboy.png';
+import greybrim from '../../img/grey-brim.png';
+import greenbeanie from '../../img/green-beanie.png';
+import palmtreecap from '../../img/palm-tree-cap.png';
+import redbeanie from '../../img/red-beanie.png';
+import wolfcap from '../../img/wolf-cap.png';
+import bluesnapback from '../../img/blue-snapback.png';
+//sneakers
+import adidasnmd from '../../img/adidas-nmd.png';
+import yeezy from '../../img/yeezy.png';
+import blackconverse from '../../img/black-converse.png';
+import whitenikehightops from '../../img/white-nike-high-tops.png';
+import nikesred from '../../img/nikes-red.png';
+import nikebrown from '../../img/nike-brown.png';
+import nikefunky from '../../img/nike-funky.png';
+import timberlands from '../../img/timberlands.png';
+//jackets
+import blackshearling from '../../img/black-shearling.png';
+import bluejeanjacket from '../../img/blue-jean-jacket.png';
+import greyjeanjacket from '../../img/grey-jean-jacket.png';
+import brownshearling from '../../img/brown-shearling.png';
+import browntrench from '../../img/brown-trench.png';
+//womens
+import bluetank from '../../img/blue-tank.png';
+import floralblouse from '../../img/floral-blouse.png';
+import floralskirt from '../../img/floral-skirt.png';
+import redpolkadotdress from '../../img/red-polka-dot-dress.png';
+import stripedsweater from '../../img/striped-sweater.png';
+import yellowtracksuit from '../../img/yellow-track-suit.png';
+import whitevest from '../../img/white-vest.png';
+//mens
+import camovest from '../../img/camo-vest.png';
+import floralshirt from '../../img/floral-shirt.png';
+import longsleeve from '../../img/long-sleeve.png';
+import pinkshirt from '../../img/pink-shirt.png';
+import rollupjeanshirt from '../../img/roll-up-jean-shirt.png';
+import polkadotshirt from '../../img/polka-dot-shirt.png';
+
+export const SHOP_DATA =
     [
         {
             id: 1,
@@ -377,5 +419,3 @@ const SHOP_DATA =
             ]
         }
     ];
-
-export default SHOP_DATA;

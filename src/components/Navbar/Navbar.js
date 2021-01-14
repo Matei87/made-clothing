@@ -10,6 +10,7 @@ import { auth } from '../../firebase/firebase';
 //import StoreContext from '../../context/StoreContext';
 import { selectCartItemsCount } from '../../redux/cart/cart.selector'
 import { selectCurrentUser } from '../../redux/user/user.selector';
+import { createStructuredSelector } from 'reselect';
 
 
 const Navbar = ({ currentUser, itemCount }) => {
@@ -54,9 +55,9 @@ const Navbar = ({ currentUser, itemCount }) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    currentUser: selectCurrentUser(state),
-    itemCount: selectCartItemsCount(state)
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+    itemCount: selectCartItemsCount
 })
 
 export default connect(mapStateToProps)(Navbar);

@@ -8,13 +8,13 @@ import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
 
 
-const ItemDetails = (item) => {
+const ItemDetails = (details) => {
     //const { addItem, cartItems, favorites, addFavorite } = useContext(StoreContext);
-
-    //let history = useHistory();
+    console.log(details.location.state.details);
+    let history = useHistory();
     //console.log(props.match.params, props, history);
-    //const { item } = props.location.state;
-    const { id, name, image, price, colour, brand, description, addItem } = item;
+    //const { item } = details.location.state;
+    const { name, image, price, colour, brand, description } = details.location.state.details;
 
     //console.log(item);
 
@@ -43,7 +43,7 @@ const ItemDetails = (item) => {
         <>
             <div className="item-details container">
                 <div className="btn btn-primary"
-                // onClick={() => history.goBack()}
+                    onClick={() => history.goBack()}
                 ><HiArrowLeft /> Back</div>
                 <div className="row">
                     <div className="col-md-4">
@@ -70,13 +70,14 @@ const ItemDetails = (item) => {
                             <p className="addToCart-svg">
                                 <button
                                     className="addToCart btn"
-                                    onClick={() => addItem(item)}>
+                                // onClick={() => addItem(item)}
+                                >
                                     Add to cart
                                 </button>
-                                {/* <span
-                                    className={favoritesId.find(x => x === item.id) ? 'heart active' : 'heart'}
-                                    onClick={() => like(id)}
-                                ><HiOutlineHeart /></span> */}
+                                <span
+                                // className={favoritesId.find(x => x === item.id) ? 'heart active' : 'heart'}
+                                // onClick={() => like(id)}
+                                ><HiOutlineHeart /></span>
                             </p>
                         </div>
 
@@ -99,4 +100,4 @@ const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(addItem(item))
 })
 
-export default connect(null, mapDispatchToProps)(ItemDetails);
+export default withRouter(connect(null, mapDispatchToProps)(ItemDetails));

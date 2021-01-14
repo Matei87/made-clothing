@@ -68,7 +68,7 @@ class App extends Component {
 
   render() {
     //console.log(this.contextType, StoreContext);
-    const { currentUser, setCurrentUser } = this.context;
+    //const { currentUser, setCurrentUser } = this.context;
     return (
       <>
         <Navbar />
