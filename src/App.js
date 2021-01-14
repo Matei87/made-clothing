@@ -86,7 +86,7 @@ class App extends Component {
 
               {/* <Route exact path="/:name" component={CollectionPage} />*/}
 
-              <Route exact path="/:name/:name" component={ItemDetails} />
+              <Route path="/:name/:details" component={ItemDetails} />
               <Route component={NotFound} />
             </Switch>
 

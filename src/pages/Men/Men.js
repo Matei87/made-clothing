@@ -1,15 +1,15 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React from 'react';
 
 import { withRouter, useHistory, Link } from 'react-router-dom';
-// import StoreContext from '../../context/StoreContext';
 import { HiOutlineHeart } from "react-icons/hi";
 import { connect } from 'react-redux';
 import { selectCollections } from '../../redux/shop/shop.selector';
 
+
 const Men = ({ collections }) => {
     console.log(collections[1].items);
     // const { shopData, favorites, addFavorite } = useContext(StoreContext);
-    let history = useHistory();
+    //let history = useHistory();
 
     // const { items } = shopData[1];
     // //console.log(items);
@@ -35,19 +35,25 @@ const Men = ({ collections }) => {
                 {collections[1].items.map(item => (
                     <div className="collection-item" key={item.id}>
                         <div className="image-wrapper">
-                            <img src={item.image} alt="image"
-                                onClick={() => history.push({
+                            <Link
+                                to={{
                                     pathname: `men/${(item.name).split(' ').join('-').toLowerCase()}`,
-                                    state: { details: item }
-                                })}
-                            />
+                                    state: item
+                                }}>
+                                <img src={item.image} alt="image"
+                                // onClick={() => history.push({
+                                //     pathname: `men/${(item.name).split(' ').join('-').toLowerCase()}`,
+                                //     state: { item }
+                                // })}
+                                />
+                            </Link>
                         </div>
                         <div className="content-over">
                             <span>{item.name}</span>
                             <span>${item.price}</span>
                             <span
                             // className={favoritesId.find(x => x === item.id) ? 'heart active' : 'heart'}
-                            // onClick={() => like(item.id)}
+                            // onClick={() => addItem(item)}
                             ><HiOutlineHeart /></span>
                         </div>
                     </div>
@@ -60,7 +66,7 @@ const Men = ({ collections }) => {
 }
 
 const mapStateToProps = state => ({
-    collections: selectCollections(state)
+    collections: state.shop.collections
 })
 
 export default withRouter(connect(mapStateToProps)(Men));

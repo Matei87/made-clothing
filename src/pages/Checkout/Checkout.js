@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 //import StoreContext from '../../context/StoreContext';
 import { connect } from 'react-redux';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selector';
-import { clearItemFromCart } from '../../redux/cart/cart.actions';
+import { clearItem, addItem, removeItem } from '../../redux/cart/cart.actions';
 
 
-const Checkout = ({ cartItems, total, clearItem }) => {
+const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
     //const { cartItems } = useContext(StoreContext);
     // let itemz = JSON.parse(localStorage.getItem('cartItems'));
     // let data = cartItems;
@@ -34,12 +34,26 @@ const Checkout = ({ cartItems, total, clearItem }) => {
                                     <img src={item.image} alt={item.name} />
                                 </div>
                                 <div className="form-group quantity">
-                                    <select name="quantity" id="" className="form-control custom-select">
-                                        <option value={item.length}>{item.length}</option>
+                                    <div className="arrow"
+                                        onClick={() => removeItem(item)}>&#10094;</div>
+                                    <span className="value">{item.quantity}</span>
+                                    <div className="arrow"
+                                        onClick={() => addItem(item)}>&#10095;</div>
+                                    {/* <select name="quantity" id="" className="form-control custom-select">
+                                        <option value={item.quantity} selected>{item.quantity}</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>&nbsp;
-                            <label htmlFor="quantity-select">buc</label>
+                                    <label htmlFor="quantity-select">buc</label> */}
                                 </div>
-                                <h2>${item.price}</h2>
+                                <div className="price-remove">
+                                    <h2>${item.price}</h2>
+                                    <button className="btn btn-primary" onClick={() => clearItem(item)}>Remove</button>
+                                </div>
+
                             </div>
                         )) : null}
                     </div>
@@ -94,7 +108,9 @@ const Checkout = ({ cartItems, total, clearItem }) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    clearItem: item => dispatch(clearItemFromCart(item))
+    clearItem: item => dispatch(clearItem(item)),
+    addItem: item => dispatch(addItem(item)),
+    removeItem: item => dispatch(removeItem(item))
 })
 
 const mapStateToProps = state => ({

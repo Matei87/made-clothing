@@ -8,14 +8,14 @@ import { RiShoppingBagLine } from "react-icons/ri";
 import { HiOutlineHeart } from "react-icons/hi";
 import { auth } from '../../firebase/firebase';
 //import StoreContext from '../../context/StoreContext';
-import { selectCartItemsCount } from '../../redux/cart/cart.selector'
+import { selectCartItemsCount } from '../../redux/cart/cart.selector';
 import { selectCurrentUser } from '../../redux/user/user.selector';
 import { createStructuredSelector } from 'reselect';
 
 
 const Navbar = ({ currentUser, itemCount }) => {
     //const { cartItems } = useContext(StoreContext);
-    // console.log(shopData);
+    console.log(itemCount);
     //console.log(cartItems);
 
     return (

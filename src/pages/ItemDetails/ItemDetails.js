@@ -8,13 +8,28 @@ import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
 
 
-const ItemDetails = (details) => {
+const ItemDetails = ({ details, addItem }) => {
     //const { addItem, cartItems, favorites, addFavorite } = useContext(StoreContext);
-    console.log(details.location.state.details);
     let history = useHistory();
+    //console.log(details, history.location.state, addItemsToShop);
+    let product = [];
+    let findId = () => {
+        let historyId = history.location.state.id;
+
+        return details.find(item => {
+            for (let i in item.items) {
+                if (item.items[i].id === historyId) {
+                    product.push(item.items[i]);
+                }
+            }
+        })
+    }
+    findId();
+
+    console.log(product);
     //console.log(props.match.params, props, history);
     //const { item } = details.location.state;
-    const { name, image, price, colour, brand, description } = details.location.state.details;
+    const { name, image, price, colour, brand, description } = product[0];
 
     //console.log(item);
 
@@ -57,20 +72,10 @@ const ItemDetails = (details) => {
                             <h2 className="name">{name}</h2>
                             <p className="price">Price: <span className="price-inner">${price}</span></p>
                             <p className="colour">Colour: <span className="colour-inner">{colour}</span></p>
-                            <div className="form-group quantity">
-                                <label htmlFor="quantity-select">Quantity:</label>
-                                <select name="quantity" id="quantity-select" className="form-control custom-select">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
                             <p className="addToCart-svg">
                                 <button
                                     className="addToCart btn"
-                                // onClick={() => addItem(item)}
+                                    onClick={() => addItem(product[0])}
                                 >
                                     Add to cart
                                 </button>
@@ -96,8 +101,16 @@ const ItemDetails = (details) => {
     )
 }
 
+// const mapStateToProps = state => ({
+//     items: state.cart
+// })
+
+const mapStateToProps = state => ({
+    details: state.shop.collections
+})
+
 const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(addItem(item))
 })
 
-export default withRouter(connect(null, mapDispatchToProps)(ItemDetails));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ItemDetails));
