@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selector';
 import { clearItem, addItem, removeItem } from '../../redux/cart/cart.actions';
+//stripe
+import StripeCheckoutButton from '../../components/stripe-button/stripe-button';
 
 
 const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
@@ -58,26 +60,6 @@ const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
                         )) : null}
                     </div>
 
-                    < div className="col-md-3">
-                        <div className="wrapper">
-                            <div className="summar">
-                                <h3>Summary</h3>
-                                <div className="product-cost">
-                                    <p>Products cost: </p>
-                                    <span>${total}</span>
-                                </div>
-                                <div className="delivery-cost">
-                                    <p>Delivery cost: </p>
-                                    <span>Free</span>
-                                </div>
-                            </div>
-                            <div className="total-cost">
-                                <h3>Total: ${total}</h3>
-                                <button className="btn btn-outline-primary btn-block">Continue</button>
-                            </div>
-                        </div>
-                    </div>
-
                     <div className="col-md-9">
                         <div className="summar">
                             <h3>Summary</h3>
@@ -92,12 +74,21 @@ const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
                         </div>
                         <div className="total-cost">
                             <h3>Total: ${total}</h3>
-                            <button className="btn btn-outline-primary btn-block">Continue</button>
+                            <StripeCheckoutButton price={total} />
                         </div>
                     </div>
-
                 </div>
-            </div >
+
+                <div className="col-md-9">
+                    <div className='test-warning'>
+                        *Please use the following test credit card for payments*
+                    <br />
+                    4242 4242 4242 4242 - Exp: 12/21 - CVV: 123
+                </div>
+                </div>
+
+
+            </div>
             : <div className="empty-list">
                 <h2>Your basket is empty</h2>
                 <p>To add products into basket please go back to the shop.</p>

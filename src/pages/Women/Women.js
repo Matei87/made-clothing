@@ -36,7 +36,7 @@ const Women = ({ collections, favorite, addFavorite }) => {
         <div className="collection-page">
             <h2 className="collection-title">Women</h2>
             <div className="collection-items">
-                {collections[0].items.map(item => (
+                {collections.items.map(item => (
                     <div className="collection-item" key={item.id}>
                         <div className="image-wrapper">
                             <Link
@@ -72,7 +72,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => ({
-    collections: state.shop.collections,
+    collections: state.shop.collections[0],
     favorite: state.favorite.favoriteItems
 })
 

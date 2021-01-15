@@ -51,8 +51,8 @@ const SignUp = () => {
     }
 
     return (
-        <div className="sign-up col-md-10">
-            {/* <h2>I do not have a account</h2> */}
+        <div className="sign-up col-md-12 col-lg-10">
+
             <span>Sign up with your email and password</span>
 
             <form onSubmit={handleSubmit}>

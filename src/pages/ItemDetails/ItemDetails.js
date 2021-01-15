@@ -58,17 +58,23 @@ const ItemDetails = ({ details, addItem, favorite, addFavorite }) => {
     return (
         <>
             <div className="item-details container">
-                <div className="btn btn-primary"
-                    onClick={() => history.goBack()}
-                ><HiArrowLeft /> Back</div>
+
                 <div className="row">
-                    <div className="col-md-4">
+
+                    <div className="col-sm-10 col-md-12 col-lg-10">
+                        <div className="btn btn-primary"
+                            onClick={() => history.goBack()}>
+                            <HiArrowLeft /> Back</div>
+                    </div>
+
+                    <div className="col-sm-10 col-md-6 col-lg-5">
                         <div className="image-wrapper">
                             <img src={image} alt="image" />
                         </div>
                     </div>
-                    <div className="col-md-6">
-                        <div className="w-55">
+                    <div className="col-sm-10 col-md-6 col-lg-5">
+
+                        <div className="w-70">
                             <p className="brand">Brand: <span className="brand-inner">{brand}</span></p>
                             <h2 className="name">{name}</h2>
                             <p className="price">Price: <span className="price-inner">${price}</span></p>
@@ -76,10 +82,9 @@ const ItemDetails = ({ details, addItem, favorite, addFavorite }) => {
                             <p className="addToCart-svg">
                                 <button
                                     className="addToCart btn"
-                                    onClick={() => addItem(product[0])}
-                                >
+                                    onClick={() => addItem(product[0])}>
                                     Add to cart
-                                </button>
+                             </button>
                                 <span
                                     className={favoritesId.find(x => x === product[0].id) ? 'heart active' : 'heart'}
                                     onClick={() => addFavorite(product[0])}
@@ -87,15 +92,12 @@ const ItemDetails = ({ details, addItem, favorite, addFavorite }) => {
                             </p>
                         </div>
 
-
+                        <div>
+                            <h3>Description:</h3>
+                            <p className="m-0">{description}</p>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div className="item-description container">
-                <div className="col-md-7">
-                    <h3>Description:</h3>
-                    <p>{description}</p>
                 </div>
             </div>
         </>

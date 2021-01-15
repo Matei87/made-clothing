@@ -2,21 +2,19 @@
     margin: 2rem auto;
 
     .row {
+        display: flex; justify-content: center;
 
         .col-md-9.wrapper {
             background-color: #03a9f4;
             padding: 1rem 1.5rem;
-            //display: flex; flex-direction: column;
             width: 100%;
 
             .col-md-12 {
-                display: flex; justify-content: space-between;
+                display: flex; justify-content: space-between; align-items: center;
 
                 margin: 1rem 0; padding: 1rem;
                 background-color: #fff;
-                //background-color: #212121;
                 border: 1px solid #000;
-                box-shadow: 0px 5px 20px 7px rgba( #000000, .75);
     
                 .image-wrapper {
                     height: 250px; width: 250px;
@@ -45,9 +43,6 @@
                 .price-remove {
                     display: flex; flex-direction: column;
                     align-items: center;
-                    h2 {
-
-                    }
 
                     button {
                         border-radius: 0;
@@ -174,9 +169,20 @@
                     font-size: 1.15rem;
                 }
             }
+            
         }
         
     }
+
+    .col-md-9 {
+        margin: auto;
+        padding: 0;
+
+        .test-warning {
+            color: red;
+        }
+    }
+    
 }
 
 .empty-list {
@@ -203,4 +209,60 @@
             box-shadow: none !important;
         }
     }
+}
+
+
+/* MEDIA QUERIES */
+// Extra small devices
+@media (max-width: 575.98px) {
+    .container-fluid {
+        padding: 0 !important;
+    }
+    .checkout .row .col-md-9:last-of-type .summar {
+        width: 60%;
+    }
+
+    .checkout .row .col-md-9.wrapper {
+        padding: 0;
+        background: transparent;
+    }
+    .checkout .row .col-md-9.wrapper .col-md-12 {
+        box-shadow: none;
+        padding: 0 1rem 0 0;
+    }
+}
+
+// Small devices
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .container-fluid {
+        padding: 0;
+    }
+    .checkout .row .col-md-9.wrapper .col-md-12 {
+        padding: 0 1rem 0 0;
+    }
+
+    .checkout .row .col-md-9.wrapper .col-md-12 {
+        box-shadow: none;
+    }
+    .checkout .row .col-md-9.wrapper {
+        background: transparent;
+    }
+    .checkout .row .col-md-9:last-of-type .summar {
+        width: 65%;
+    }
+}
+
+// Medium devices
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+// Large devices
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+}
+
+// Extra large devices
+@media (min-width: 1200px) { 
+    
 }
