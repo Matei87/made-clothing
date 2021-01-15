@@ -15,7 +15,7 @@ import { createStructuredSelector } from 'reselect';
 
 const Navbar = ({ currentUser, itemCount }) => {
     //const { cartItems } = useContext(StoreContext);
-    console.log(itemCount);
+    //console.log(itemCount);
     //console.log(cartItems);
 
     return (

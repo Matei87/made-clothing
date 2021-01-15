@@ -1,54 +1,66 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import StoreContext from '../../context/StoreContext';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { Link, useHistory } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+//redux
+import { connect } from 'react-redux';
+import { removeFavorite } from '../../redux/favorite/favorite.actions';
 
 
-const Favorite = () => {
-    const { favorites, removeFavorite } = useContext(StoreContext);
-    let history = useHistory();
+const Favorite = ({ favorite, removeFavorite }) => {
+    // const { favorites, removeFavorite } = useContext(StoreContext);
+    // let history = useHistory();
+    console.log(favorite);
+    // const unlike = (id) => {
+    //     let unlikeProduct = favorites.filter(item => item.id !== id);
+    //     removeFavorite(id);
+    //     localStorage.setItem('favorites', JSON.stringify(unlikeProduct));
+    //     //console.log(id, unlikeProduct);
+    // }
 
-    const unlike = (id) => {
-        let unlikeProduct = favorites.filter(item => item.id !== id);
-        removeFavorite(id);
-        localStorage.setItem('favorites', JSON.stringify(unlikeProduct));
-        //console.log(id, unlikeProduct);
-    }
-
-    return (<>{favorites.length > 0 ?
-        <div className="collection-page">
-            <h2 className="collection-title">Favorite Items</h2>
-            <div className="collection-items">
-                {favorites.map(item => (
-                    <div className="collection-item" key={item.id} >
-                        <div className="image-wrapper">
-                            <img src={item.image} alt="image"
-                                onClick={() => history.push({
-                                    pathname: `${(item.routeName)}/${(item.name).split(' ').join('-').toLowerCase()}`,
-                                    state: { item: item }
-                                })}
-                            />
+    return (<>
+        {favorite.length > 0 ?
+            <div className="collection-page">
+                <h2 className="collection-title">Favorite Items</h2>
+                <div className="collection-items">
+                    {favorite.map(item => (
+                        <div className="collection-item" key={item.id} >
+                            <div className="image-wrapper">
+                                <Link
+                                    to={{
+                                        pathname: `${(item.routeName)}/${(item.name).split(' ').join('-').toLowerCase()}`,
+                                        state: item
+                                    }}>
+                                    <img src={item.image} alt="image" />
+                                </Link>
+                            </div>
+                            <div className="content-over">
+                                <span>{item.name}</span>
+                                <span>${item.price}</span>
+                                <span
+                                    className="heart"
+                                    onClick={() => removeFavorite(item)}
+                                ><RiDeleteBin6Line /></span>
+                            </div>
                         </div>
-                        <div className="content-over">
-                            <span>{item.name}</span>
-                            <span>${item.price}</span>
-                            <span
-                                className="heart"
-                                onClick={() => unlike(item.id)}
-                            ><RiDeleteBin6Line /></span>
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
-        : <div className="empty-list">
-            <h2>You don`t have favorite items</h2>
-            <p>To add products to favorite please go back to the shop.</p>
-            <Link to="/women" className="btn btn-outline-primary btn-block">Women</Link>
-            <Link to="/men" className="btn btn-outline-primary btn-block">Men</Link>
-        </div>}</>
-    );
+            : <div className="empty-list">
+                <h2>You don`t have favorite items</h2>
+                <p>To add products to favorite please go back to the shop.</p>
+                <Link to="/women" className="btn btn-outline-primary btn-block">Women</Link>
+                <Link to="/men" className="btn btn-outline-primary btn-block">Men</Link>
+            </div>}
+    </>);
 }
 
-export default Favorite;
+const mapDispatchToProps = dispatch => ({
+    removeFavorite: item => dispatch(removeFavorite(item))
+})
+
+const mapStateToProps = state => ({
+    favorite: state.favorite.favoriteItems
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Favorite));

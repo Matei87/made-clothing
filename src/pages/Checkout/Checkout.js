@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './Checkout.scss';
 
 import { Link } from 'react-router-dom';
-//import StoreContext from '../../context/StoreContext';
+//redux
 import { connect } from 'react-redux';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selector';
 import { clearItem, addItem, removeItem } from '../../redux/cart/cart.actions';

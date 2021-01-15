@@ -1,14 +1,15 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import './ItemDetails.scss';
 
 import { useHistory, withRouter } from 'react-router-dom';
 import { HiArrowLeft, HiOutlineHeart } from "react-icons/hi";
-//import StoreContext from '../../context/StoreContext';
+//redux
 import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
+import { addFavorite } from '../../redux/favorite/favorite.actions';
 
 
-const ItemDetails = ({ details, addItem }) => {
+const ItemDetails = ({ details, addItem, favorite, addFavorite }) => {
     //const { addItem, cartItems, favorites, addFavorite } = useContext(StoreContext);
     let history = useHistory();
     //console.log(details, history.location.state, addItemsToShop);
@@ -51,8 +52,8 @@ const ItemDetails = ({ details, addItem }) => {
     //     localStorage.setItem('favorites', JSON.stringify([item, ...favorites]));
     //     //console.log(favorites, id);
     // }
-    // let favoritesId = favorites.map(x => x.id);
-    //console.log(favorites, favoritesId, id);
+    let favoritesId = favorite.map(x => x.id);
+    console.log(favorite);
 
     return (
         <>
@@ -80,8 +81,8 @@ const ItemDetails = ({ details, addItem }) => {
                                     Add to cart
                                 </button>
                                 <span
-                                // className={favoritesId.find(x => x === item.id) ? 'heart active' : 'heart'}
-                                // onClick={() => like(id)}
+                                    className={favoritesId.find(x => x === product[0].id) ? 'heart active' : 'heart'}
+                                    onClick={() => addFavorite(product[0])}
                                 ><HiOutlineHeart /></span>
                             </p>
                         </div>
@@ -101,16 +102,14 @@ const ItemDetails = ({ details, addItem }) => {
     )
 }
 
-// const mapStateToProps = state => ({
-//     items: state.cart
-// })
-
-const mapStateToProps = state => ({
-    details: state.shop.collections
+const mapDispatchToProps = dispatch => ({
+    addItem: item => dispatch(addItem(item)),
+    addFavorite: item => dispatch(addFavorite(item))
 })
 
-const mapDispatchToProps = dispatch => ({
-    addItem: item => dispatch(addItem(item))
+const mapStateToProps = state => ({
+    details: state.shop.collections,
+    favorite: state.favorite.favoriteItems
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ItemDetails));
