@@ -1,17 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import './Homepage.scss';
 
-//import StoreContext from '../../context/StoreContext';
 import Header from '../../components/header/header';
+import Carousel from '../../components/carousel/carousel';
 import Spinner from '../../components/spinner/spinner';
 
+
 const Homepage = () => {
-    //const { isLoading, shopData } = useContext(StoreContext);
 
     return (
         < div className="homepage">
             <Header />
-            <h1 className="collection-title">Collection</h1>
+            <h1 className="collection-title">New Products</h1>
+            <Carousel />
         </div>
     )
 }

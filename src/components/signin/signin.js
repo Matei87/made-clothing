@@ -32,7 +32,7 @@ const SignIn = () => {
     }
 
     return (
-        <div className="sign-in col-md-12 col-lg-10">
+        <div className="sign-in col-sm-12 col-md-12 col-lg-10 p-0">
 
             <span>Sign in with your email and password</span>
 
@@ -57,7 +57,7 @@ const SignIn = () => {
                 />
                 <div className="buttons">
                     <input type="submit" value="SIGN IN" className="btn" />
-                    <input type="submit" value="GOOGLE SIGN IN" className="btn google" onClick={signInWithGoogle} />
+                    <input type="submit" value="GOOGLE" className="btn google" onClick={signInWithGoogle} />
                 </div>
 
             </form>

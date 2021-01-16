@@ -27,6 +27,7 @@
 
                 .form-group.quantity {
                     display: flex;  align-content: center;
+                    margin: 0;
 
                     .arrow {
                         cursor: pointer;
@@ -219,7 +220,7 @@
         padding: 0 !important;
     }
     .checkout .row .col-md-9:last-of-type .summar {
-        width: 60%;
+        width: 55%;
     }
 
     .checkout .row .col-md-9.wrapper {
@@ -229,6 +230,20 @@
     .checkout .row .col-md-9.wrapper .col-md-12 {
         box-shadow: none;
         padding: 0 1rem 0 0;
+    }
+    .checkout .row .col-md-9:last-of-type .summar .product-cost span,
+    .checkout .row .col-md-9:last-of-type .summar .delivery-cost span {
+        margin-right: 1rem;
+    }
+    .checkout .row .col-md-9.wrapper .col-md-12 .price-remove h2 {
+        font-size: 1.5rem;
+    }
+    .checkout .row .col-md-9.wrapper .col-md-12 .image-wrapper {
+        height: 150px;
+        width: 150px;
+    }
+    .checkout .row .col-md-9:last-of-type .total-cost h3 {
+        font-size: 1.5rem;
     }
 }
 

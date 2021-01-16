@@ -1,0 +1,50 @@
+.carousel {
+    margin: 0 auto 2rem;
+    padding: 0 7.5px !important;
+
+    .slick-arrow {
+        display: none !important;
+    }
+    .slick-list {
+        display: flex !important; justify-content: center; align-content: center;
+
+        .slick-track {
+            display: flex !important;
+            align-content: center; margin: 0 !important;
+            position: relative;
+    
+            .slick-slide {
+                width: 320px !important;
+    
+                a {
+                    border: 1px solid #252934;
+                    width: 270px !important;
+                    height: 24.5rem;
+    
+                    .image-wrapper {
+                        width: 100%;
+                        height: 22rem;
+                
+                        img {
+                            object-fit: cover; object-position: top;
+                            width: 100%; height: 100%;
+                        }
+                    }
+    
+                    .content-over {
+                        background-color: #212121;
+                        color: #fff;
+                        display: flex; justify-content: center; align-content: center;
+                        height: 2.5rem;
+                
+                        span {
+                            align-self: center;
+                        }
+                    }
+    
+                }
+            }
+    
+        }
+    }
+}

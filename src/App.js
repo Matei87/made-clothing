@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.scss';
 
 import StoreContext from './context/StoreContext';
 import { Route, Switch, Redirect } from 'react-router-dom';
@@ -9,7 +8,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 
 import Navbar from './components/navbar/navbar';
 import Homepage from './pages/Homepage/Homepage';
-import SignInAndSignUpPage from './pages/signin-and-signup/signin-and-signup';
+import SignInSignUp from './pages/SignInSignUp/SignInSignUp';
 import Favorite from './pages/Favorite/Favorite';
 import Women from './pages/Women/Women';
 import Men from './pages/Men/Men';
@@ -78,7 +77,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route exact path="/signin"
-                render={() => this.props.currentUser ? (<Redirect to="/" />) : (<SignInAndSignUpPage />)} />
+                render={() => this.props.currentUser ? (<Redirect to="/" />) : (<SignInSignUp />)} />
               <Route exact path="/favorite" component={Favorite} />
               <Route exact path="/women" component={Women} />
               <Route exact path="/men" component={Men} />

@@ -51,7 +51,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className="sign-up col-md-12 col-lg-10">
+        <div className="sign-up col-sm-12 col-md-12 col-lg-10 p-0">
 
             <span>Sign up with your email and password</span>
 
