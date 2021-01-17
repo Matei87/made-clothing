@@ -3,15 +3,28 @@ footer {
     .social {
         height: 60px;
         border-top: 1px solid #000;
-        display: flex; justify-content: center; align-items: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        
 
         .social-links {
-            
+            justify-self: end; align-self: center;
+
             a {
                 margin-left: 3rem;
 
                 svg {
-                    width: 2rem; height: 2rem;
+                    width: 1.5rem; height: 1.5rem;
+                    border: 1px solid transparent;
+                }
+
+                &:hover {
+
+                    svg {
+                        border-radius: 50%;
+                        border: 1px solid #000;
+                    }
+                    
                 }
             }
 
@@ -29,16 +42,53 @@ footer {
                 }
             }
             a:nth-of-type(3) {
-                
+                margin-right: 3rem;
+
                 svg {
                     fill: #FFFC00;
+                    stroke: honeydew;
                 }
             }
 
         }
 
         .social-cards {
-            margin: 20px 0 20px 50px;
+            justify-self: start; align-self: center;
+            padding-left: 3rem;
+            border-left: 1px solid #999;
+
+            span {
+                margin-left: 3rem;
+
+                svg {
+                    width: 30px; height: 21px;
+                }
+            }
+            span:first-of-type {
+                margin-left: 0;
+
+                svg {
+                    fill: #1a1f71;
+                }
+            }
+            span:nth-of-type(2) {
+                
+                svg {
+                    fill: #231F20;
+                }
+            } 
+            span:nth-of-type(3) {
+
+                svg {
+                    fill: #00457C;
+                }
+            }
+            span:nth-of-type(4) {
+
+                svg {
+                    fill: #2671b9;
+                }
+            }
         }
     }
 
@@ -48,4 +98,35 @@ footer {
         display: flex !important; justify-content: center; align-items: center;
         color: #fff;
     }
+}
+
+
+
+/* MEDIA QUERIES */
+// Extra small devices
+@media (max-width: 575.98px) {
+    footer .social {
+    
+            .social-links {
+    
+                a {
+                    margin-left: 1rem;
+    
+                }
+    
+                a:nth-of-type(3) {
+                    margin-right: 1rem;
+    
+                }
+    
+            }
+    
+            .social-cards {
+                padding-left: 1rem;
+    
+                span {
+                    margin-left: .5rem;
+                }
+            }
+        }
 }

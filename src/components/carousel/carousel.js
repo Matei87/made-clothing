@@ -13,22 +13,22 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const Carousel = ({ women, men }) => {
     console.log(women[3]);
-    const content = [women[3], men[4], women[4], men[5], men[9], women[8], men[18], women[9], men[20], women[10], men[12], women[11]]
+    const content = [women[3], men[4], women[4], men[5], men[9], women[8], men[18], women[9], men[20], women[10], men[12], women[11], men[13], women[13], men[14], women[14], men[15], women[1]]
 
     const settings = {
         dots: false,
         infinite: true,
-        slidesToShow: 6,
+        slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: false,
-        speed: 3000,
-        autoplaySpeed: 2000,
+        speed: 5000,
+        autoplaySpeed: 3000,
         pauseOnHover: false,
         responsive: [
             {
                 breakpoint: 1200,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 4,
                     slidesToScroll: 1,
                 }
             },

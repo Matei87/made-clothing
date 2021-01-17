@@ -16,14 +16,30 @@
                 background-color: #fff;
                 border: 1px solid #000;
     
-                .image-wrapper {
-                    height: 250px; width: 250px;
+                a {
+
+                    .image-wrapper {
+                        height: 250px; width: 250px;
+                        border: 5px solid #000;
+        
+                        img {
+                            height: 100%; width: 100%;
+                            object-fit: cover;
+                        }
+                    }
     
-                    img {
-                        height: 100%; width: 100%;
-                        object-fit: cover;
+                    .content-over {
+                        background-color: #212121;
+                        color: #fff;
+                        display: flex; justify-content: center; align-content: center;
+                        height: 2.5rem;
+                
+                        span {
+                            align-self: center;
+                        }
                     }
                 }
+
 
                 .form-group.quantity {
                     display: flex;  align-content: center;
@@ -222,14 +238,18 @@
     .checkout .row .col-md-9:last-of-type .summar {
         width: 55%;
     }
-
     .checkout .row .col-md-9.wrapper {
         padding: 0;
         background: transparent;
-    }
-    .checkout .row .col-md-9.wrapper .col-md-12 {
-        box-shadow: none;
-        padding: 0 1rem 0 0;
+
+        .col-md-12 {
+            box-shadow: none;
+            padding: 0 1rem 0 0;
+
+            a .image-wrapper {
+                height: 150px; width: 150px;
+            }
+        }
     }
     .checkout .row .col-md-9:last-of-type .summar .product-cost span,
     .checkout .row .col-md-9:last-of-type .summar .delivery-cost span {
@@ -237,10 +257,6 @@
     }
     .checkout .row .col-md-9.wrapper .col-md-12 .price-remove h2 {
         font-size: 1.5rem;
-    }
-    .checkout .row .col-md-9.wrapper .col-md-12 .image-wrapper {
-        height: 150px;
-        width: 150px;
     }
     .checkout .row .col-md-9:last-of-type .total-cost h3 {
         font-size: 1.5rem;
@@ -252,16 +268,16 @@
     .container-fluid {
         padding: 0;
     }
-    .checkout .row .col-md-9.wrapper .col-md-12 {
-        padding: 0 1rem 0 0;
-    }
 
-    .checkout .row .col-md-9.wrapper .col-md-12 {
-        box-shadow: none;
-    }
     .checkout .row .col-md-9.wrapper {
         background: transparent;
+
+        .col-md-12 {
+            padding: 0 1rem 0 0;
+            box-shadow: none;
+        }
     }
+
     .checkout .row .col-md-9:last-of-type .summar {
         width: 65%;
     }

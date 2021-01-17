@@ -32,9 +32,22 @@ const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
                     <div className="col-md-9 wrapper" >
                         {cartItems ? cartItems.map(item => (
                             <div className="col-md-12" key={item.id}>
-                                <div className="image-wrapper">
+                                <Link
+                                    to={{
+                                        pathname: `${item.routeName}/${(item.name).split(' ').join('-').toLowerCase()}`,
+                                        state: item
+                                    }}>
+                                    <div className="image-wrapper">
+                                        <img src={item.image} alt="image" />
+                                    </div>
+                                    <div className="content-over">
+                                        <span>{item.name}</span>
+                                    </div>
+                                </Link>
+
+                                {/* <div className="image-wrapper">
                                     <img src={item.image} alt={item.name} />
-                                </div>
+                                </div> */}
                                 <div className="form-group quantity">
                                     <div className="arrow"
                                         onClick={() => removeItem(item)}>&#10094;</div>

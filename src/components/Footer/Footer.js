@@ -1,10 +1,11 @@
 import React from 'react';
 import './footer.scss';
 
-import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaSnapchat, FaCcVisa, FaCcMastercard, FaCcPaypal } from 'react-icons/fa';
 import { SiAmericanexpress } from 'react-icons/si';
-
+import { TiSocialInstagramCircular } from 'react-icons/ti';
+import { AiFillInstagram } from 'react-icons/ai';
+import { RiSnapchatLine } from 'react-icons/ri';
 
 const Footer = () => {
     return (
@@ -16,7 +17,7 @@ const Footer = () => {
                         <FaFacebook />
                     </a>
                     <a href="https://www.instagram.com/" target="_blank">
-                        <FaInstagram />
+                        <TiSocialInstagramCircular />
                     </a>
                     <a href="https://www.snapchat.com/" target="_blank">
                         <FaSnapchat />
