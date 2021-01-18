@@ -7,5 +7,6 @@ Discover the latest fashion trends.
 * React
 * Redux
 * Bootstrap
+* Stripe
 * Firebase
 * Sass
