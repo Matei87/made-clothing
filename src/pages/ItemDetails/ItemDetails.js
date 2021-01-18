@@ -1,7 +1,7 @@
 import React from 'react';
 import './ItemDetails.scss';
 
-import { withRouter } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 import { HiArrowLeft, HiOutlineHeart } from "react-icons/hi";
 //redux
 import { connect } from 'react-redux';
@@ -10,6 +10,8 @@ import { addFavorite } from '../../redux/favorite/favorite.actions';
 
 
 const ItemDetails = ({ details, addItem, favorite, addFavorite, location }) => {
+
+    let history = useHistory();
 
     const { name, image, price, colour, brand, description } = location.state;
     let favoritesId = favorite.map(x => x.id);
