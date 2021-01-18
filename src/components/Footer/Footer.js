@@ -39,7 +39,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <span className="copyright">Copyright © 2020 Matei Mircea</span>
+            <span className="copyright">Copyright © 2021 Matei Mircea</span>
         </footer>
     )
 }
