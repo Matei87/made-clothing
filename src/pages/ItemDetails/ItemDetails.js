@@ -1,36 +1,16 @@
 import React from 'react';
 import './ItemDetails.scss';
 
-import { useHistory, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { HiArrowLeft, HiOutlineHeart } from "react-icons/hi";
 //redux
 import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
 import { addFavorite } from '../../redux/favorite/favorite.actions';
-import { useSelector } from 'react-redux'
 
 
 const ItemDetails = ({ details, addItem, favorite, addFavorite, location }) => {
 
-    let history = useHistory();
-    // let product = [];
-    // let findId = () => {
-    //     let historyId = location.state.id;
-    //     console.log(location, history);
-
-    //     return details.find(item => {
-    //         console.log(item);
-
-    //         for (let i in item.items) {
-    //             if (item.items[i].id === historyId) {
-    //                 product.push(item.items[i]);
-    //             }
-    //         }
-    //     })
-    // }
-    // findId();
-
-    //const { name, image, price, colour, brand, description } = product[0];
     const { name, image, price, colour, brand, description } = location.state;
     let favoritesId = favorite.map(x => x.id);
     console.log(details);
