@@ -4,7 +4,7 @@ import './index.scss';
 
 
 import App from './App';
-import { BrowserRouter as Route, HashRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -12,10 +12,10 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.render(
     <Provider store={store}>
-        <HashRouter basename="/">
+        <Router>
             <PersistGate persistor={persistor}>
                 <App />
             </PersistGate>
-        </HashRouter>
+        </Router>
     </Provider>,
     document.getElementById('root'));
