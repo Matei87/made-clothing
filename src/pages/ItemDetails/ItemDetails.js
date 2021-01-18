@@ -10,9 +10,7 @@ import { addFavorite } from '../../redux/favorite/favorite.actions';
 
 
 const ItemDetails = ({ details, addItem, favorite, addFavorite }) => {
-    //const { addItem, cartItems, favorites, addFavorite } = useContext(StoreContext);
     let history = useHistory();
-    //console.log(details, history.location.state, addItemsToShop);
     let product = [];
     let findId = () => {
         let historyId = history.location.state.id;
@@ -27,31 +25,8 @@ const ItemDetails = ({ details, addItem, favorite, addFavorite }) => {
     }
     findId();
 
-    console.log(product);
-    //console.log(props.match.params, props, history);
-    //const { item } = details.location.state;
     const { name, image, price, colour, brand, description } = product[0];
 
-    //console.log(item);
-
-    // const addToCart = (item) => {
-    //     addItem([...cartItems, item]);
-    //     localStorage.setItem('cartItems', JSON.stringify([...cartItems, item]));
-    //     //console.log(cartItems);
-    // }
-    //console.log(cartItems);
-
-    // const like = (id) => {
-    //     const exist = favorites.find(x => x.id === id);
-    //     //console.log(exist);
-    //     if (exist) {
-    //         return;
-    //     }
-
-    //     addFavorite([item, ...favorites]);
-    //     localStorage.setItem('favorites', JSON.stringify([item, ...favorites]));
-    //     //console.log(favorites, id);
-    // }
     let favoritesId = favorite.map(x => x.id);
     console.log(favorite);
 

@@ -8,7 +8,6 @@ import { addFavorite } from '../../redux/favorite/favorite.actions';
 
 
 const Men = ({ collections, favorite, addFavorite }) => {
-    //console.log(collections[1].items);
 
     let favoritesId = favorite.map(x => x.id);
 

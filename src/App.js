@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import StoreContext from './context/StoreContext';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import { connect } from 'react-redux';
@@ -26,13 +25,9 @@ import { auth, createUserProfileDocument } from './firebase/firebase';
 
 
 class App extends Component {
-  //static contextType = StoreContext;
-
 
   componentDidMount() {
     const { setCurrentUser } = this.props;
-
-    //console.log(currentUser, setCurrentUser, this.context);
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
@@ -46,18 +41,10 @@ class App extends Component {
               ...snapShot.data()
             }
           })
-          // this.context.setCurrentUser({
-          //   id: snapShot.id,
-          //   ...snapShot.data()
-          // });
         });
       }
 
       setCurrentUser(userAuth);
-      //this.context.setCurrentUser(userAuth);
-
-
-      //console.log(this.context.currentUser);
     });
   }
 
@@ -66,8 +53,7 @@ class App extends Component {
   }
 
   render() {
-    //console.log(this.contextType, StoreContext);
-    //const { currentUser, setCurrentUser } = this.context;
+
     return (
       <>
         <Navbar />
@@ -82,9 +68,6 @@ class App extends Component {
               <Route exact path="/women" component={Women} />
               <Route exact path="/men" component={Men} />
               <Route exact path="/checkout" component={Checkout} />
-
-              {/* <Route exact path="/:name" component={CollectionPage} />*/}
-
               <Route path="/:name/:details" component={ItemDetails} />
               <Route component={NotFound} />
             </Switch>

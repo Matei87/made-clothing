@@ -4,7 +4,7 @@ import './carousel.scss';
 //redux
 import { connect } from 'react-redux';
 //router
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //slider
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
@@ -20,7 +20,7 @@ const Carousel = ({ women, men }) => {
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         speed: 5000,
         autoplaySpeed: 3000,
         pauseOnHover: false,
@@ -65,14 +65,12 @@ const Carousel = ({ women, men }) => {
                             pathname: `${item.routeName}/${(item.name).split(' ').join('-').toLowerCase()}`,
                             state: item
                         }}>
-                        {/* <div className="collection-item" key={'unu'}> */}
                         <div className="image-wrapper">
                             <img src={item.image} alt="image" />
                         </div>
                         <div className="content-over">
                             <span>{item.name}</span>
                         </div>
-                        {/* </div> */}
                     </Link>
                 ))}
             </Slider>

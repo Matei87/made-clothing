@@ -5,7 +5,7 @@ Discover the latest fashion trends.
 # Built With
 
 * React
-* Context API
+* Redux
 * Bootstrap
 * Firebase
 * Sass

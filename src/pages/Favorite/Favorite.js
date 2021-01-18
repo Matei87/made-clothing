@@ -8,15 +8,6 @@ import { removeFavorite } from '../../redux/favorite/favorite.actions';
 
 
 const Favorite = ({ favorite, removeFavorite }) => {
-    // const { favorites, removeFavorite } = useContext(StoreContext);
-    // let history = useHistory();
-    //console.log(favorite);
-    // const unlike = (id) => {
-    //     let unlikeProduct = favorites.filter(item => item.id !== id);
-    //     removeFavorite(id);
-    //     localStorage.setItem('favorites', JSON.stringify(unlikeProduct));
-    //     //console.log(id, unlikeProduct);
-    // }
 
     return (<>
         {favorite.length > 0 ?

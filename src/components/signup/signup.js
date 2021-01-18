@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { auth, createUserProfileDocument } from '../../firebase/firebase';
 import './signup.scss';
+
+import { auth, createUserProfileDocument } from '../../firebase/firebase';
+
 
 const SignUp = () => {
     const [displayName, setDisplayName] = useState('');
