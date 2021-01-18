@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/made-clothing/static/css/main.b82270f8.chunk.css",
+    "main.css": "/made-clothing/static/css/main.1ff74065.chunk.css",
     "main.js": "/made-clothing/static/js/main.dc6a4fdf.chunk.js",
     "main.js.map": "/made-clothing/static/js/main.dc6a4fdf.chunk.js.map",
     "runtime-main.js": "/made-clothing/static/js/runtime-main.92c9cb94.js",
@@ -10,7 +10,7 @@
     "static/js/2.9af9d6bc.chunk.js.map": "/made-clothing/static/js/2.9af9d6bc.chunk.js.map",
     "index.html": "/made-clothing/index.html",
     "static/css/2.16c0311f.chunk.css.map": "/made-clothing/static/css/2.16c0311f.chunk.css.map",
-    "static/css/main.b82270f8.chunk.css.map": "/made-clothing/static/css/main.b82270f8.chunk.css.map",
+    "static/css/main.1ff74065.chunk.css.map": "/made-clothing/static/css/main.1ff74065.chunk.css.map",
     "static/js/2.9af9d6bc.chunk.js.LICENSE.txt": "/made-clothing/static/js/2.9af9d6bc.chunk.js.LICENSE.txt",
     "static/media/adidas-nmd.415c0fed.png": "/made-clothing/static/media/adidas-nmd.415c0fed.png",
     "static/media/black-converse.5c76faa9.png": "/made-clothing/static/media/black-converse.5c76faa9.png",
@@ -56,7 +56,7 @@
     "static/js/runtime-main.92c9cb94.js",
     "static/css/2.16c0311f.chunk.css",
     "static/js/2.9af9d6bc.chunk.js",
-    "static/css/main.b82270f8.chunk.css",
+    "static/css/main.1ff74065.chunk.css",
     "static/js/main.dc6a4fdf.chunk.js"
   ]
 }
