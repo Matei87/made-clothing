@@ -12,9 +12,11 @@ import StripeCheckoutButton from '../../components/stripe-button/stripe-button';
 
 const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
 
-    return (<> {cartItems.length > 0 ?
+    return (<>
         <div className="container checkout">
-            <div className="row">
+            <h2 className="checkout-title">Basket Items</h2>
+
+            {cartItems.length > 0 ? <> <div className="row">
                 <div className="col-md-9 wrapper" >
                     {cartItems ? cartItems.map(item => (
                         <div className="col-md-12" key={item.id}>
@@ -66,23 +68,24 @@ const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
                 </div>
             </div>
 
-            <div className="col-md-9">
-                <div className='test-warning'>
-                    *Please use the following test credit card for payments*
-                    <br />
-                    4242 4242 4242 4242 - Exp: 12/21 - CVV: 123
+                <div className="col-md-9">
+                    <div className='test-warning'>
+                        *Please use the following test credit card for payments*
+                         <br />
+                         4242 4242 4242 4242 - Exp: 12/21 - CVV: 123
+                    </div>
                 </div>
-            </div>
 
-
+            </> : <div className="empty-list">
+                    <h2>Your basket is empty</h2>
+                    <p>To add products into basket please go back to the shop.</p>
+                    <div className="redirect">
+                        <Link to="/women" className="btn btn-outline-primary">Women</Link>
+                        <Link to="/men" className="btn btn-outline-primary">Men</Link>
+                    </div>
+                </div>}
         </div>
-        : <div className="empty-list">
-            <h2>Your basket is empty</h2>
-            <p>To add products into basket please go back to the shop.</p>
-            <Link to="/women" className="btn btn-outline-primary btn-block">Women</Link>
-            <Link to="/men" className="btn btn-outline-primary btn-block">Men</Link>
-        </div>}</>
-    )
+    </>)
 }
 
 const mapDispatchToProps = dispatch => ({

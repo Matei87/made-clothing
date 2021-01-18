@@ -1,8 +1,14 @@
 .checkout {
     margin: 2rem auto;
 
+    .checkout-title {
+        text-align: center;
+        margin: 0;
+    }
+
     .row {
         display: flex; justify-content: center;
+        margin-top: 1rem;
 
         .col-md-9.wrapper {
             background-color: #03a9f4;
@@ -203,29 +209,41 @@
 }
 
 .empty-list {
-    max-width: 30%;
-    margin: 3rem auto;
+    margin: 1rem auto 0;
+    display: flex; align-content: center;
+    flex-direction: column;
     text-align: center;
 
-    a {
-        max-width: 35%;
-        margin: auto;
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .redirect {
+        display: flex; align-self: center;
+        grid-gap: .5rem;
+        flex-direction: column;
+        width: 10rem;
 
-        color: #fff;
-        background: #212529;
-        border-color: #212529;
-        border-radius: 0;
-
-        &:hover {
-            background: #fff;
-            color: #212529;
+        a {
+            width: 100%;
+            
+            color: #fff;
+            background: #212529;
             border-color: #212529;
-        }
-
-        &:focus {
-            box-shadow: none !important;
+            border-radius: 0;
+    
+            &:hover {
+                background: #fff;
+                color: #212529;
+                border-color: #212529;
+            }
+    
+            &:focus {
+                box-shadow: none !important;
+            }
         }
     }
+    
 }
 
 
@@ -265,7 +283,7 @@
         max-width: 90%;
 
         a {
-            max-width: 50%;
+            //max-width: 50%;
         }
     }
 }
@@ -307,7 +325,7 @@
         max-width: 100%;
 
         a {
-            max-width: 25%;
+            //max-width: 25%;
         }
     }
 }
