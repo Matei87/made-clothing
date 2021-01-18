@@ -12,7 +12,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router basename="made-clothing">
+        <Router basename={process.env.PUBLIC_URL}>
             <PersistGate persistor={persistor}>
                 <App />
             </PersistGate>
