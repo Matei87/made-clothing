@@ -208,7 +208,7 @@
     text-align: center;
 
     a {
-        max-width: 30%;
+        max-width: 35%;
         margin: auto;
 
         color: #fff;
@@ -261,6 +261,13 @@
     .checkout .row .col-md-9:last-of-type .total-cost h3 {
         font-size: 1.5rem;
     }
+    .empty-list {
+        max-width: 90%;
+
+        a {
+            max-width: 50%;
+        }
+    }
 }
 
 // Small devices
@@ -281,16 +288,28 @@
     .checkout .row .col-md-9:last-of-type .summar {
         width: 65%;
     }
+
+    .empty-list {
+        max-width: 100%;
+    }
 }
 
 // Medium devices
 @media (min-width: 768px) and (max-width: 991.98px) {
-
+    .empty-list {
+        max-width: 100%;
+    }
 }
 
 // Large devices
 @media (min-width: 992px) and (max-width: 1199.98px) { 
+    .empty-list {
+        max-width: 100%;
 
+        a {
+            max-width: 25%;
+        }
+    }
 }
 
 // Extra large devices
