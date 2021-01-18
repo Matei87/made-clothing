@@ -7,28 +7,33 @@ import { HiArrowLeft, HiOutlineHeart } from "react-icons/hi";
 import { connect } from 'react-redux';
 import { addItem } from '../../redux/cart/cart.actions';
 import { addFavorite } from '../../redux/favorite/favorite.actions';
+import { useSelector } from 'react-redux'
 
 
-const ItemDetails = ({ details, addItem, favorite, addFavorite }) => {
+const ItemDetails = ({ details, addItem, favorite, addFavorite, location }) => {
+
     let history = useHistory();
-    let product = [];
-    let findId = () => {
-        let historyId = history.location.state.id;
+    // let product = [];
+    // let findId = () => {
+    //     let historyId = location.state.id;
+    //     console.log(location, history);
 
-        return details.find(item => {
-            for (let i in item.items) {
-                if (item.items[i].id === historyId) {
-                    product.push(item.items[i]);
-                }
-            }
-        })
-    }
-    findId();
+    //     return details.find(item => {
+    //         console.log(item);
 
-    const { name, image, price, colour, brand, description } = product[0];
+    //         for (let i in item.items) {
+    //             if (item.items[i].id === historyId) {
+    //                 product.push(item.items[i]);
+    //             }
+    //         }
+    //     })
+    // }
+    // findId();
 
+    //const { name, image, price, colour, brand, description } = product[0];
+    const { name, image, price, colour, brand, description } = location.state;
     let favoritesId = favorite.map(x => x.id);
-    console.log(favorite);
+    console.log(details);
 
     return (
         <>
@@ -57,12 +62,12 @@ const ItemDetails = ({ details, addItem, favorite, addFavorite }) => {
                             <p className="addToCart-svg">
                                 <button
                                     className="addToCart btn"
-                                    onClick={() => addItem(product[0])}>
+                                    onClick={() => addItem(location.state)}>
                                     Add to cart
                              </button>
                                 <span
-                                    className={favoritesId.find(x => x === product[0].id) ? 'heart active' : 'heart'}
-                                    onClick={() => addFavorite(product[0])}
+                                    className={favoritesId.find(x => x === location.state.id) ? 'heart active' : 'heart'}
+                                    onClick={() => addFavorite(location.state)}
                                 ><HiOutlineHeart /></span>
                             </p>
                         </div>
