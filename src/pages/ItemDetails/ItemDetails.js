@@ -9,13 +9,13 @@ import { addItem } from '../../redux/cart/cart.actions';
 import { addFavorite } from '../../redux/favorite/favorite.actions';
 
 
-const ItemDetails = ({ details, addItem, favorite, addFavorite, location }) => {
+const ItemDetails = ({ addItem, favorite, addFavorite, location }) => {
 
     let history = useHistory();
 
     const { name, image, price, colour, brand, description } = location.state;
     let favoritesId = favorite.map(x => x.id);
-    console.log(details);
+
 
     return (
         <>
@@ -72,7 +72,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => ({
-    details: state.shop.collections,
     favorite: state.favorite.favoriteItems
 })
 

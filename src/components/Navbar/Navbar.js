@@ -1,22 +1,25 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './navbar.scss';
 
-import { connect } from 'react-redux';
+
+//logo
 import Logo from '../../img/logo1.png';
-import { NavLink } from 'react-router-dom';
-import { RiShoppingBagLine } from "react-icons/ri";
-import { HiOutlineHeart } from "react-icons/hi";
-import { auth } from '../../firebase/firebase';
-//import StoreContext from '../../context/StoreContext';
+//redux
+import { connect } from 'react-redux';
 import { selectCartItemsCount } from '../../redux/cart/cart.selector';
 import { selectCurrentUser } from '../../redux/user/user.selector';
+//react-router-dom
+import { NavLink } from 'react-router-dom';
+//react-icons
+import { RiShoppingBagLine } from "react-icons/ri";
+import { HiOutlineHeart } from "react-icons/hi";
+//firebase
+import { auth } from '../../firebase/firebase';
+//selector
 import { createStructuredSelector } from 'reselect';
 
 
 const Navbar = ({ currentUser, itemCount }) => {
-    //const { cartItems } = useContext(StoreContext);
-    //console.log(itemCount);
-    //console.log(cartItems);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -45,7 +48,6 @@ const Navbar = ({ currentUser, itemCount }) => {
                             <RiShoppingBagLine />
                             <span className="cart-item">
                                 {itemCount}
-                                {/* {cartItems.length || 0} */}
                             </span>
                         </NavLink>
                     </li>
