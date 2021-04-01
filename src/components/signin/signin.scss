@@ -1,0 +1,52 @@
+.sign-in {
+    margin: 0 auto;
+    
+    span {
+        display: flex; justify-content: center;
+    }
+
+    input.form-control {
+        margin: 2.8125rem 0;
+        border-radius: 0 !important;
+        font-size: 1.125rem !important;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .buttons {
+        display: flex; justify-content: space-between;
+
+        .btn {
+            border-radius: 0 !important;
+            background: #000;
+            color: #fff;
+            border-color: #000 !important;
+            padding: .6875rem 2rem !important;
+            font-size: 1.125rem !important;
+            transition: all .3s ease !important;
+    
+        
+            &:hover {
+                background: #fff !important;
+                border-color: #000 !important;
+                color: #000;
+            }
+    
+            &:focus {
+                box-shadow: none !important;
+            }
+
+            &.google {
+                background: #03a9f4;
+                border-color: #03a9f4 !important;
+
+                &:hover {
+                    border-color: #000 !important;
+                }
+            }
+        }        
+    }
+
+}

@@ -1,0 +1,336 @@
+.checkout {
+    margin: 2rem auto;
+
+    .checkout-title {
+        text-align: center;
+        margin: 0;
+    }
+
+    .row {
+        display: flex; justify-content: center;
+        margin-top: 1rem;
+
+        .col-md-9.wrapper {
+            background-color: #03a9f4;
+            padding: 1rem 1.5rem;
+            width: 100%;
+
+            .col-md-12 {
+                display: flex; justify-content: space-between; align-items: center;
+
+                margin: 1rem 0; padding: 1rem;
+                background-color: #fff;
+                border: 1px solid #000;
+    
+                a {
+
+                    .image-wrapper {
+                        height: 250px; width: 250px;
+                        border: 5px solid #000;
+        
+                        img {
+                            height: 100%; width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+    
+                    .content-over {
+                        background-color: #212121;
+                        color: #fff;
+                        display: flex; justify-content: center; align-content: center;
+                        height: 2.5rem;
+                
+                        span {
+                            align-self: center;
+                        }
+                    }
+                }
+
+
+                .form-group.quantity {
+                    display: flex;  align-content: center;
+                    margin: 0;
+
+                    .arrow {
+                        cursor: pointer;
+                    }
+
+                    .value {
+                        margin: 0 10px;
+                    }
+                    .custom-select {
+                        border-radius: 0;
+                    }
+                }
+
+                .price-remove {
+                    display: flex; flex-direction: column;
+                    align-items: center;
+
+                    button {
+                        border-radius: 0;
+                        background: #03a9f4;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        .col-md-3 {
+            display: flex; flex-direction: column;
+
+            .wrapper {
+                padding: .5rem .75rem;
+                background: #212121;
+                color: #fff;
+
+                .summar {
+                    position: relative;
+                    padding: 1rem 0;
+    
+                    h3 {
+                        font-weight: 400;
+                    }
+    
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: 0; bottom: 0; height: 1px; width: 100%;
+                        background-color: #fff;
+                    }
+    
+                    .product-cost, .delivery-cost {
+                        display: flex; justify-content: space-between;
+                        align-items: center; 
+    
+                        p {
+                            margin: .25rem 0;
+                        }
+    
+                    }
+    
+                    .delivery-cost {
+                        span {
+                            color: #03a9f4;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                        }
+                    }
+                }
+    
+                .total-cost {
+                    display: flex; flex-direction: column;
+                    padding: 1.5rem 0;
+    
+                    .btn {
+                        background-color: #03a9f4;
+                        color: #fff; border: none !important;
+                        border-radius: 0;
+                        font-weight: 500;
+                        font-size: 1.15rem;
+                    }
+                }
+
+            }
+            
+        }
+
+        .col-md-9:last-of-type {
+            display: flex; justify-content: space-between;
+            margin: 1rem 0; padding: 1rem 1.5rem;
+            background-color: #212121;
+            color: #fff;
+
+            .summar {
+                width: 70%;
+                position: relative;
+
+                h3 {
+                    font-weight: 400;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    right: 0; top: 0; width: 1px; height: 100%;
+                    background-color: #fff;
+                }
+
+                .product-cost, .delivery-cost {
+                    display: flex; justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        margin: .25rem 0;
+                    }
+
+                    span {
+                        margin-right: 1.5rem;
+                    }
+
+                }
+
+                .delivery-cost {
+                    span {
+                        color: #03a9f4;
+                        text-transform: uppercase;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .total-cost {
+                display: flex; flex-direction: column; align-self: center;
+
+                .btn {
+                    background-color: #03a9f4;
+                    color: #fff; border: none !important;
+                    border-radius: 0;
+                    font-weight: 500;
+                    font-size: 1.15rem;
+                }
+            }
+            
+        }
+        
+    }
+
+    .col-md-9 {
+        margin: auto;
+        padding: 0;
+
+        .test-warning {
+            color: red;
+        }
+    }
+    
+}
+
+.empty-list {
+    margin: 1rem auto 0;
+    display: flex; align-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .redirect {
+        display: flex; align-self: center;
+        grid-gap: .5rem;
+        flex-direction: column;
+        width: 10rem;
+
+        a {
+            width: 100%;
+            
+            color: #fff;
+            background: #212529;
+            border-color: #212529;
+            border-radius: 0;
+    
+            &:hover {
+                background: #fff;
+                color: #212529;
+                border-color: #212529;
+            }
+    
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+    }
+    
+}
+
+
+/* MEDIA QUERIES */
+// Extra small devices
+@media (max-width: 575.98px) {
+    .container-fluid {
+        padding: 0 !important;
+    }
+    .checkout .row .col-md-9:last-of-type .summar {
+        width: 55%;
+    }
+    .checkout .row .col-md-9.wrapper {
+        padding: 0;
+        background: transparent;
+
+        .col-md-12 {
+            box-shadow: none;
+            padding: 0 1rem 0 0;
+
+            a .image-wrapper {
+                height: 150px; width: 150px;
+            }
+        }
+    }
+    .checkout .row .col-md-9:last-of-type .summar .product-cost span,
+    .checkout .row .col-md-9:last-of-type .summar .delivery-cost span {
+        margin-right: 1rem;
+    }
+    .checkout .row .col-md-9.wrapper .col-md-12 .price-remove h2 {
+        font-size: 1.5rem;
+    }
+    .checkout .row .col-md-9:last-of-type .total-cost h3 {
+        font-size: 1.5rem;
+    }
+    .empty-list {
+        max-width: 90%;
+
+        a {
+            //max-width: 50%;
+        }
+    }
+}
+
+// Small devices
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .container-fluid {
+        padding: 0;
+    }
+
+    .checkout .row .col-md-9.wrapper {
+        background: transparent;
+
+        .col-md-12 {
+            padding: 0 1rem 0 0;
+            box-shadow: none;
+        }
+    }
+
+    .checkout .row .col-md-9:last-of-type .summar {
+        width: 65%;
+    }
+
+    .empty-list {
+        max-width: 100%;
+    }
+}
+
+// Medium devices
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .empty-list {
+        max-width: 100%;
+    }
+}
+
+// Large devices
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .empty-list {
+        max-width: 100%;
+
+        a {
+            //max-width: 25%;
+        }
+    }
+}
+
+// Extra large devices
+@media (min-width: 1200px) { 
+    
+}

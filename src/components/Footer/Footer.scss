@@ -1,0 +1,110 @@
+footer {
+
+    .social {
+        height: 60px;
+        border-top: 1px solid #000;
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(9, 30px);
+        align-items: center; justify-content: center;
+        align-content: center; justify-items: center;
+
+        p {
+            position: relative;
+            height: 100%;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%; top: 25%; bottom: -25%;
+                border-left: 1px solid #000;
+            }
+        }
+
+        span, a {
+            svg {
+                width: 1.5rem; height: 1.5rem;
+            }
+        }
+
+        a {
+
+            svg {
+                border: 1px solid transparent;
+            }
+
+            &:hover {
+
+                svg {
+                    border-radius: 50%;
+                    border: 1px solid #000;
+                }
+            }
+        }
+
+        a:first-of-type {
+            svg {
+                fill: #4267B2;
+            }
+        }
+
+        a:nth-of-type(2) {
+            svg {
+                fill: #1da1f2;
+            }
+        }
+
+        a:nth-of-type(3) {
+            svg {
+                fill: #833ab4;
+            }
+        }
+        a:nth-of-type(4) {
+            svg {
+                fill: #FFFC00;
+            }
+        }
+
+        span:first-of-type {
+
+            svg {
+                fill: #1a1f71;
+            }
+        }
+        span:nth-of-type(2) {
+            
+            svg {
+                fill:#231f20;
+            }
+        } 
+        span:nth-of-type(3) {
+
+            svg {
+                fill: #00457C;
+            }
+        }
+        span:nth-of-type(4) {
+
+            svg {
+                fill: #323031;
+            }
+        }
+    }
+
+    .copyright {
+        background: #212121 !important;
+        height: 3.625rem;
+        display: flex !important; justify-content: center; align-items: center;
+        color: #fff;
+    }
+}
+
+
+
+/* MEDIA QUERIES */
+// Extra small devices
+@media (max-width: 575.98px) {
+    footer .social {
+            grid-gap: .5rem;
+        }
+}

@@ -1,0 +1,33 @@
+.signin-and-signup {
+    margin: 2rem auto;
+
+.row {
+    flex-direction: column;
+
+    .nav {
+        justify-content: center;
+        margin: 0 auto !important;
+        padding: 0;
+
+        a.nav-link {
+            color: #03a9f4;
+
+            &.active {
+                color: #000;
+            }
+        }
+
+    }
+
+    #myTabContent {
+        margin: 2rem auto 0;
+
+        #home, #profile {
+            margin: 0 auto;
+        }
+    }
+
+    
+} 
+
+}
