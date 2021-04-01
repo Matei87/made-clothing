@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/made-clothing/static/css/main.f44379a5.chunk.css",
-    "main.js": "/made-clothing/static/js/main.10d717f2.chunk.js",
-    "main.js.map": "/made-clothing/static/js/main.10d717f2.chunk.js.map",
-    "runtime-main.js": "/made-clothing/static/js/runtime-main.92c9cb94.js",
-    "runtime-main.js.map": "/made-clothing/static/js/runtime-main.92c9cb94.js.map",
-    "static/css/2.16c0311f.chunk.css": "/made-clothing/static/css/2.16c0311f.chunk.css",
-    "static/js/2.5f3fa4f4.chunk.js": "/made-clothing/static/js/2.5f3fa4f4.chunk.js",
-    "static/js/2.5f3fa4f4.chunk.js.map": "/made-clothing/static/js/2.5f3fa4f4.chunk.js.map",
+    "main.css": "/made-clothing/static/css/main.2da8d115.chunk.css",
+    "main.js": "/made-clothing/static/js/main.42f64ab2.chunk.js",
+    "main.js.map": "/made-clothing/static/js/main.42f64ab2.chunk.js.map",
+    "runtime-main.js": "/made-clothing/static/js/runtime-main.f2da0e6b.js",
+    "runtime-main.js.map": "/made-clothing/static/js/runtime-main.f2da0e6b.js.map",
+    "static/css/2.eb1715ee.chunk.css": "/made-clothing/static/css/2.eb1715ee.chunk.css",
+    "static/js/2.59f554a1.chunk.js": "/made-clothing/static/js/2.59f554a1.chunk.js",
+    "static/js/2.59f554a1.chunk.js.map": "/made-clothing/static/js/2.59f554a1.chunk.js.map",
     "index.html": "/made-clothing/index.html",
-    "static/css/2.16c0311f.chunk.css.map": "/made-clothing/static/css/2.16c0311f.chunk.css.map",
-    "static/css/main.f44379a5.chunk.css.map": "/made-clothing/static/css/main.f44379a5.chunk.css.map",
-    "static/js/2.5f3fa4f4.chunk.js.LICENSE.txt": "/made-clothing/static/js/2.5f3fa4f4.chunk.js.LICENSE.txt",
+    "static/css/2.eb1715ee.chunk.css.map": "/made-clothing/static/css/2.eb1715ee.chunk.css.map",
+    "static/css/main.2da8d115.chunk.css.map": "/made-clothing/static/css/main.2da8d115.chunk.css.map",
+    "static/js/2.59f554a1.chunk.js.LICENSE.txt": "/made-clothing/static/js/2.59f554a1.chunk.js.LICENSE.txt",
     "static/media/adidas-nmd.415c0fed.png": "/made-clothing/static/media/adidas-nmd.415c0fed.png",
     "static/media/black-converse.5c76faa9.png": "/made-clothing/static/media/black-converse.5c76faa9.png",
     "static/media/black-hat.0e71047c.png": "/made-clothing/static/media/black-hat.0e71047c.png",
@@ -53,10 +53,10 @@
     "static/media/yellow-track-suit.beecf18e.png": "/made-clothing/static/media/yellow-track-suit.beecf18e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.92c9cb94.js",
-    "static/css/2.16c0311f.chunk.css",
-    "static/js/2.5f3fa4f4.chunk.js",
-    "static/css/main.f44379a5.chunk.css",
-    "static/js/main.10d717f2.chunk.js"
+    "static/js/runtime-main.f2da0e6b.js",
+    "static/css/2.eb1715ee.chunk.css",
+    "static/js/2.59f554a1.chunk.js",
+    "static/css/main.2da8d115.chunk.css",
+    "static/js/main.42f64ab2.chunk.js"
   ]
 }
