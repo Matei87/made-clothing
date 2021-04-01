@@ -22,11 +22,7 @@ const Favorite = ({ favorite, removeFavorite }) => {
                                     pathname: `${(item.routeName)}/${(item.name).split(' ').join('-').toLowerCase()}`,
                                     state: item
                                 }}>
-<<<<<<< HEAD
                                 <img src={item.image} alt="favorite" />
-=======
-                                <img src={item.image} alt="image" />
->>>>>>> f575a61117d5e7d504d238b84ca4dd5dade11ef3
                             </Link>
                         </div>
                         <div className="content-over">
@@ -40,7 +36,6 @@ const Favorite = ({ favorite, removeFavorite }) => {
                     </div>
                 ))}
             </div> : <div className="empty-list">
-<<<<<<< HEAD
                 <h2>You don`t have favorite items</h2>
                 <p>To add products to favorite please go back to the shop.</p>
                 <div className="redirect">
@@ -48,16 +43,7 @@ const Favorite = ({ favorite, removeFavorite }) => {
                     <Link to="/men" className="btn btn-outline-primary">Men</Link>
                 </div>
             </div>}
-=======
-                    <h2>You don`t have favorite items</h2>
-                    <p>To add products to favorite please go back to the shop.</p>
-                    <div className="redirect">
-                        <Link to="/women" className="btn btn-outline-primary">Women</Link>
-                        <Link to="/men" className="btn btn-outline-primary">Men</Link>
-                    </div>
-                </div>}
->>>>>>> f575a61117d5e7d504d238b84ca4dd5dade11ef3
-        </div>
+        </div >
     </>);
 }
 

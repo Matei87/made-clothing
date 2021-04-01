@@ -23,11 +23,7 @@ const Men = ({ collections, favorite, addFavorite }) => {
                                     pathname: `men/${(item.name).split(' ').join('-').toLowerCase()}`,
                                     state: item
                                 }}>
-<<<<<<< HEAD
                                 <img src={item.image} alt="men" />
-=======
-                                <img src={item.image} alt="image" />
->>>>>>> f575a61117d5e7d504d238b84ca4dd5dade11ef3
                             </Link>
                         </div>
                         <div className="content-over">
