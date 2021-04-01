@@ -38,7 +38,7 @@ const Navbar = ({ currentUser, itemCount }) => {
                     {currentUser ? <li className="nav-item">
                         <div className={currentUser ? `nav-link active` : "nav-link"} onClick={() => auth.signOut()}>SIGN OUT</div>
                     </li> : <li className="nav-item">
-                        <NavLink className="nav-link" to="/signin" >SIGN IN</NavLink>
+                        <NavLink className="nav-link" to="/signin">SIGN IN</NavLink>
                     </li>}
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/favorite"><HiOutlineHeart /></NavLink>

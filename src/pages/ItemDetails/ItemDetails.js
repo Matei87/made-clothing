@@ -13,7 +13,11 @@ const ItemDetails = ({ addItem, favorite, addFavorite, location }) => {
 
     let history = useHistory();
 
+<<<<<<< HEAD
     const { name, image, price, color, brand, description } = location.state;
+=======
+    const { name, image, price, colour, brand, description } = location.state;
+>>>>>>> f575a61117d5e7d504d238b84ca4dd5dade11ef3
     let favoritesId = favorite.map(x => x.id);
 
 
@@ -31,7 +35,11 @@ const ItemDetails = ({ addItem, favorite, addFavorite, location }) => {
 
                     <div className="col-sm-10 col-md-6 col-lg-5">
                         <div className="image-wrapper">
+<<<<<<< HEAD
                             <img src={image} alt="itemDetails" />
+=======
+                            <img src={image} alt="image" />
+>>>>>>> f575a61117d5e7d504d238b84ca4dd5dade11ef3
                         </div>
                     </div>
                     <div className="col-sm-10 col-md-6 col-lg-5">
@@ -40,7 +48,11 @@ const ItemDetails = ({ addItem, favorite, addFavorite, location }) => {
                             <p className="brand">Brand: <span className="brand-inner">{brand}</span></p>
                             <h2 className="name">{name}</h2>
                             <p className="price">Price: <span className="price-inner">${price}</span></p>
+<<<<<<< HEAD
                             <p className="colour">Color: <span className="colour-inner">{color}</span></p>
+=======
+                            <p className="colour">Colour: <span className="colour-inner">{colour}</span></p>
+>>>>>>> f575a61117d5e7d504d238b84ca4dd5dade11ef3
                             <p className="addToCart-svg">
                                 <button
                                     className="addToCart btn"

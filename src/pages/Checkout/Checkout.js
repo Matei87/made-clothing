@@ -26,7 +26,11 @@ const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
                                     state: item
                                 }}>
                                 <div className="image-wrapper">
+<<<<<<< HEAD
                                     <img src={item.image} alt="checkout" />
+=======
+                                    <img src={item.image} alt="image" />
+>>>>>>> f575a61117d5e7d504d238b84ca4dd5dade11ef3
                                 </div>
                                 <div className="content-over">
                                     <span>{item.name}</span>
@@ -77,6 +81,7 @@ const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
                 </div>
 
             </> : <div className="empty-list">
+<<<<<<< HEAD
                 <h2>Your basket is empty</h2>
                 <p>To add products into basket please go back to the shop.</p>
                 <div className="redirect">
@@ -84,6 +89,15 @@ const Checkout = ({ cartItems, total, clearItem, addItem, removeItem }) => {
                     <Link to="/men" className="btn btn-outline-primary">Men</Link>
                 </div>
             </div>}
+=======
+                    <h2>Your basket is empty</h2>
+                    <p>To add products into basket please go back to the shop.</p>
+                    <div className="redirect">
+                        <Link to="/women" className="btn btn-outline-primary">Women</Link>
+                        <Link to="/men" className="btn btn-outline-primary">Men</Link>
+                    </div>
+                </div>}
+>>>>>>> f575a61117d5e7d504d238b84ca4dd5dade11ef3
         </div>
     </>)
 }
